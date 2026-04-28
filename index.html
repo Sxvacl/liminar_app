@@ -261,17 +261,14 @@
     .hero-d3 {
       opacity: 0;
       animation: rise .9s var(--ease) .52s forwards;
-      background: var(--bg);
-      border: 1px solid var(--line-s);
-      box-shadow: 0 24px 60px -30px rgba(15,15,20,0.35);
-      border-radius: 4px;
-      overflow: hidden;
-      max-width: 560px;
+      max-width: 520px;
       margin-left: auto;
     }
-    :root[data-theme="dark"] .hero-d3 { box-shadow: 0 24px 60px -20px rgba(0,0,0,0.7); }
 
-    .d3-tabs { display: flex; border-bottom: 1px solid var(--line); position: relative; }
+    /* Tabs — su propia card */
+    .d3-tabs { display: flex; border-bottom: 1px solid var(--line); position: relative;
+      border: 1px solid var(--line-s); border-radius: 4px; overflow: hidden;
+      background: var(--bg); margin-bottom: 10px; }
     .d3-tab {
       flex: 1; padding: 11px 12px; border: none; cursor: pointer;
       background: var(--bg2); color: var(--ink-m);
@@ -281,46 +278,116 @@
     }
     .d3-tab.active {
       background: var(--bg); color: var(--ink);
-      border-bottom-color: var(--accent);
+      border-bottom-color: var(--accent); font-weight: 600;
     }
-    .d3-tab:hover { color: var(--ink); }
+    .d3-tab:hover { color: var(--ink); background: var(--bg); }
     .d3-progress {
       position: absolute; bottom: -1px; height: 2px;
       background: var(--accent); opacity: .55;
       width: 50%; transform-origin: left;
     }
-    .d3-progress.run { animation: d3prog 8s linear forwards; }
+    .d3-progress.run { animation: d3prog linear forwards; }
     @keyframes d3prog { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
-    .d3-body {
-      display: grid; grid-template-columns: 1fr;
-      align-items: stretch;
-    }
-    .d3-arrow {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 8px 0;
-      background: var(--bg2);
-    }
-    .d3-arrow svg {
-      transform: rotate(90deg);
-    }
-    .d3-col-input {
-      border-right: none !important;
-    }
-    .d3-col-output {
-      padding: 18px 18px 16px;
-    }
-    .d3-body.fade { animation: d3fade .45s var(--ease); }
+    /* ── 3-phase vertical layout ── */
+    .d3-phases.fade { animation: d3fade .45s var(--ease); }
     @keyframes d3fade {
       from { opacity: 0; transform: translateY(4px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .d3-arrow { display: flex; align-items: center; justify-content: center; background: var(--bg2); }
-    .d3-arrow svg { stroke: var(--accent); }
-
-    .d3-col-input { background: var(--bg); overflow: hidden; }
-    .d3-col-output { background: var(--bg); padding: 18px 18px 16px; }
+    /* phases container — flex con gap entre cards */
+    .d3-phases { display: flex; flex-direction: column; gap: 0; }
+    /* cada fase: su propia card */
+    .d3-phase {
+      background: var(--bg); border: 1px solid var(--line-s);
+      border-radius: 4px; overflow: hidden;
+      box-shadow: 0 2px 10px rgba(15,15,20,0.07);
+    }
+    :root[data-theme="dark"] .d3-phase { box-shadow: 0 2px 10px rgba(0,0,0,0.28); }
+    .d3-phase-head {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 14px; background: var(--bg2); border-bottom: 1px solid var(--line);
+    }
+    .d3-phase-num {
+      font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 500;
+      color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .d3-phase-lbl {
+      font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 500;
+      color: var(--ink-m); letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    /* conector: flota libremente entre las cards */
+    .d3-phase-conn {
+      display: flex; align-items: center; justify-content: center;
+      height: 28px; position: relative;
+    }
+    .d3-phase-conn::before {
+      content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+      width: 1px; background: var(--line-s); transform: translateX(-50%);
+    }
+    .d3-phase-conn svg { stroke: var(--accent); z-index: 1; background: var(--bg); padding: 2px; }
+    /* Phase 2 — lead */
+    .d3-lead-phase { padding: 12px 14px 14px; }
+    .d3-lead-name-lg {
+      font-family: 'Fraunces', serif; font-size: 15px; font-weight: 500;
+      color: var(--ink); margin-bottom: 2px; line-height: 1.2;
+    }
+    .d3-lead-contact {
+      font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+      color: var(--ink-m); margin-bottom: 10px; display: block;
+    }
+    .d3-lead-reason {
+      font-family: 'Inter', sans-serif; font-size: 11px; color: var(--ink-s);
+      line-height: 1.5; margin-bottom: 10px;
+      padding: 7px 10px; background: var(--bg2); border-left: 2px solid var(--accent);
+    }
+    .d3-action-row { display: flex; gap: 6px; }
+    .d3-action-btn {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 5px;
+      padding: 7px 10px; border-radius: 999px;
+      font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500;
+      cursor: default; text-decoration: none; border: 1px solid transparent;
+    }
+    .d3-action-btn.wa { background: #25D366; color: #fff; }
+    .d3-action-btn.em { background: var(--bg2); color: var(--ink); border-color: var(--line-s); }
+    :root[data-theme="dark"] .d3-action-btn.wa { background: #128C7E; }
+    /* Phase 3 — chat */
+    .d3-chat { padding: 12px 14px 14px; background: var(--bg2); display: flex; flex-direction: column; gap: 8px; }
+    .d3-chat-head {
+      display: flex; align-items: center; gap: 10px; padding: 10px 14px;
+      border-bottom: 2px solid var(--accent);
+    }
+    .d3-chat-avatar {
+      width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; color: #fff;
+    }
+    .d3-chat-info b { font-size: 12px; font-weight: 600; color: var(--ink); display: block; line-height: 1.3; }
+    .d3-chat-info small { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #4CAF50; }
+    .d3-bubble {
+      max-width: 82%; padding: 9px 13px; border-radius: 12px;
+      font-size: 12px; line-height: 1.5; font-family: 'Inter', sans-serif;
+    }
+    .d3-bubble.out {
+      background: var(--accent); color: #fff; align-self: flex-end; border-bottom-right-radius: 3px;
+      box-shadow: 0 2px 10px rgba(27,68,227,0.28);
+    }
+    .d3-bubble.in  {
+      background: var(--bg); color: var(--ink); align-self: flex-start;
+      border-bottom-left-radius: 3px; border: 1px solid var(--line);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    :root[data-theme="dark"] .d3-bubble.out { box-shadow: 0 2px 10px rgba(110,139,255,0.35); }
+    .d3-bubble-sender { font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 500; color: var(--accent); margin-bottom: 3px; display: block; }
+    .d3-bubble-meta { display: flex; justify-content: flex-end; align-items: center; gap: 3px; margin-top: 3px; }
+    .d3-bubble-time { font-size: 9px; opacity: 0.55; font-family: 'JetBrains Mono', monospace; }
+    @keyframes bubbleIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .d3-bubble:nth-child(1) { animation: bubbleIn .3s var(--ease) .05s both; }
+    .d3-bubble:nth-child(2) { animation: bubbleIn .3s var(--ease) .2s  both; }
+    .d3-bubble:nth-child(3) { animation: bubbleIn .3s var(--ease) .38s both; }
 
     /* MP header */
     .d3-mp-header {
@@ -386,8 +453,8 @@
       text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-m);
     }
     .d3-mp-row {
-      display: grid; grid-template-columns: auto 1fr auto auto;
-      gap: 8px; padding: 8px 10px; align-items: center;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 6px; padding: 8px 10px;
       border-bottom: 1px solid var(--line);
       font-family: 'Inter', sans-serif; font-size: 11px;
       opacity: 0.55;
@@ -417,8 +484,8 @@
     .d3-pi-row.hl { opacity: 1; background: rgba(27,68,227,0.06); }
     :root[data-theme="dark"] .d3-pi-row.hl { background: rgba(110,139,255,0.10); }
     .d3-pi-thumb { border-radius: 3px; flex-shrink: 0; display: block; }
-    .d3-pi-info b { font-family: 'Fraunces', serif; font-size: 12.5px; font-weight: 500; line-height: 1.2; color: var(--ink); display: block; }
-    .d3-pi-info small { font-family: 'Inter', sans-serif; font-size: 10px; color: var(--ink-m); margin-top: 2px; display: block; }
+    .d3-pi-info b { font-family: 'Fraunces', serif; font-size: 12px; font-weight: 500; line-height: 1.2; color: var(--ink); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .d3-pi-info small { font-family: 'Inter', sans-serif; font-size: 10px; color: var(--ink-m); margin-top: 2px; display: block; white-space: nowrap; }
 
     /* Output cards */
     .d3-out-meta { display: flex; justify-content: space-between; margin-bottom: 10px; }
@@ -481,6 +548,20 @@
     }
     .d3-cta:hover { transform: translateY(-2px); background: #0F30C2; }
     :root[data-theme="dark"] .d3-cta:hover { background: #8AA1FF; }
+    .d3-cta-alt {
+      background: var(--bg2); color: var(--ink);
+      border: 1px solid var(--line-s);
+    }
+    .d3-cta-alt:hover { background: var(--bg); border-color: var(--ink); transform: translateY(-2px); }
+    .d3-flow {
+      display: flex; align-items: center; gap: 5px; flex-wrap: nowrap;
+      font-family: 'JetBrains Mono', monospace; font-size: 8px;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      color: var(--ink-m); margin-bottom: 12px; overflow: hidden;
+    }
+    .d3-flow-step { white-space: nowrap; }
+    .d3-flow-arrow { color: var(--line-s); flex-shrink: 0; }
+    .d3-flow-step.active { color: var(--accent); }
     .d3-foot {
       font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 500;
       letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-m);
@@ -495,8 +576,6 @@
       .hero-d3 { max-width: 100%; margin: 0 auto; }
     }
     @media (max-width: 520px) {
-      .d3-mp-row { grid-template-columns: auto 1fr auto; font-size: 10.5px; }
-      .d3-mp-monto { display: none; }
       .d3-out-title { font-size: 15px; }
     }
 
@@ -880,7 +959,7 @@
       <div>
         <div class="h-eyebrow">
           <span class="h-eyebrow-dot" aria-hidden="true"></span>
-          <span class="mono" style="color:var(--ink-m)">Lead generation · Sistemas que extraen y actúan · Soluciones a medida</span>
+          <span class="mono" style="color:var(--ink-m)">Lead generation · Soluciones a medida</span>
         </div>
         <h1 class="hero-h1 serif">
           Tus próximos clientes<br>
@@ -888,7 +967,7 @@
           Nosotros los encontramos.
         </h1>
         <p class="hero-lede">
-          Monitoreamos <strong>Mercado Público, portales inmobiliarios y sistemas judiciales</strong> para detectar señales de compra antes que tu competencia. Entregamos contactos calificados — personas que ya tienen el problema que tú resuelves, en el momento exacto en que lo están viviendo.
+          Detectamos señales de compra en tiempo real y entregamos contactos calificados — personas que <strong>ya tienen el problema</strong>, en el momento exacto en que lo están viviendo.
         </p>
         <div class="hero-ctas">
           <a href="#cta"     class="btn btn-accent btn-lg">Agenda diagnóstico gratis →</a>
@@ -1013,22 +1092,22 @@
       <div class="step">
         <span class="mono step-num">01</span>
         <div class="step-title">Diagnóstico gratuito.</div>
-        <p class="step-desc">30 minutos. Mapeamos tu industria, tus fuentes disponibles y las señales que más predicen intención de compra.</p>
+        <p class="step-desc">30 minutos para mapear tu industria y las señales que más predicen intención de compra.</p>
       </div>
       <div class="step">
         <span class="mono step-num">02</span>
         <div class="step-title">Diseño del flujo.</div>
-        <p class="step-desc">Definimos qué datos cruzamos, qué señales monitoreamos y cómo calificamos antes de entregarte cada contacto.</p>
+        <p class="step-desc">Definimos las fuentes, las señales y el criterio de calificación antes de tocar un dato.</p>
       </div>
       <div class="step">
         <span class="mono step-num">03</span>
         <div class="step-title">Extracción y cruce.</div>
-        <p class="step-desc">Trabajamos sobre fuentes públicas y tus sistemas existentes. Sin comprar bases. Sin cold lists genéricas.</p>
+        <p class="step-desc">Fuentes públicas y sistemas existentes — sin comprar bases ni listas genéricas.</p>
       </div>
       <div class="step">
         <span class="mono step-num">04</span>
         <div class="step-title">Entrega recurrente.</div>
-        <p class="step-desc">Recibes un flujo limpio y continuo de contactos listos para conversar. Tú cierras. Nosotros seguimos encontrando.</p>
+        <p class="step-desc">Flujo continuo de contactos listos para conversar. Tú cierras — nosotros seguimos encontrando.</p>
       </div>
     </div>
   </div>
@@ -1047,7 +1126,7 @@
       <article class="case-card">
         <span class="mono case-tag">Real Estate · Portal Inmobiliario</span>
         <h3 class="case-title">Vendedores particulares convertidos en clientes de broker.</h3>
-        <p class="case-desc">Monitoreamos publicaciones nuevas de vendedores particulares en portales inmobiliarios. Calificamos por precio, tipo y señales de urgencia. El broker recibe el contacto ya segmentado — llega antes que cualquier otra inmobiliaria.</p>
+        <p class="case-desc">Detectamos vendedores particulares con señales de urgencia y entregamos el contacto al broker antes que cualquier otra inmobiliaria.</p>
         <div class="case-result">
           <span class="mono result-lbl">Resultado</span>
           <p class="result-txt">Pipeline activo de propiedades captadas. Cero gasto en pauta.</p>
@@ -1057,7 +1136,7 @@
       <article class="case-card">
         <span class="mono case-tag">Jurídico · Mercado Público</span>
         <h3 class="case-title">Empresas que perdieron licitaciones. Leads con urgencia declarada.</h3>
-        <p class="case-desc">Monitoreamos ChileCompra en tiempo real, identificamos a los proveedores no adjudicados y enriquecemos con datos de contacto del representante legal. El estudio jurídico llega con contexto — sabe qué licitación perdieron, contra quién, y con qué argumentos puede apelar.</p>
+        <p class="case-desc">Identificamos proveedores no adjudicados en ChileCompra y entregamos el contacto enriquecido — el estudio llega sabiendo qué perdieron y con qué argumentos apelar.</p>
         <div class="case-result">
           <span class="mono result-lbl">Resultado</span>
           <p class="result-txt">70% de tasa de captura de contacto verificado. Flujo semanal de leads listos para conversar.</p>
@@ -1067,7 +1146,7 @@
       <article class="case-card">
         <span class="mono case-tag">Mediación · Centros judiciales</span>
         <h3 class="case-title">Más sesiones conjuntas. Menos inasistencias. Operación sin fricción.</h3>
-        <p class="case-desc">Nos integramos al sistema interno del centro, extraemos las causas activas, notificamos a demandante y demandado vía WhatsApp y email, y enviamos recordatorios escalonados. El equipo del centro deja de perseguir partes — el sistema lo hace por ellos, en el momento justo.</p>
+        <p class="case-desc">Extraemos causas activas, notificamos a ambas partes por WhatsApp y email, y enviamos recordatorios escalonados — el equipo deja de perseguir a nadie.</p>
         <div class="case-result">
           <span class="mono result-lbl">Resultado</span>
           <p class="result-txt">Tasas de sesión conjunta significativamente más altas. Agenda siempre activa, sin huecos.</p>
@@ -1125,10 +1204,6 @@
               <option value="otro">Otro</option>
             </select>
           </div>
-          <div class="form-field">
-            <label for="mensaje">¿Algo más que quieras contar? <span style="color:var(--ink-m)">(opcional)</span></label>
-            <textarea id="mensaje" name="mensaje" placeholder="Cuéntame brevemente tu situación actual..."></textarea>
-          </div>
           <div class="form-submit">
             <p class="form-note">Sin spam. Solo te escribimos para coordinar la llamada.</p>
             <button type="submit" class="btn btn-accent btn-lg">Enviar →</button>
@@ -1182,7 +1257,7 @@
   });
 
   /* ─────────────────────────────────────────────────────────
-     HERO D3 — Antes / Después con dos rubros
+     HERO D3 — 3 fases: Detección → Lead → Cierre
      ───────────────────────────────────────────────────────── */
   (function() {
     var mount = document.getElementById('hero-d3');
@@ -1192,149 +1267,148 @@
       { id: 'mp', label: 'Mercado Público' },
       { id: 'pi', label: 'Portales inmobiliarios' }
     ];
+    var AUTO_DELAY   = 12000;
+    var MANUAL_DELAY = 30000;
+    var currentDelay = AUTO_DELAY;
 
-    /* ---------- INPUT (antes): Mercado Público ---------- */
-    function inputMP() {
-      return ''
-        + '<div class="d3-mp-header">'
-        +   '<div class="d3-mp-headinfo">'
-        +     '<div class="d3-mp-badge">MP</div>'
-        +     '<div><small>mercadopublico.cl</small><b>Licitaciones recién adjudicadas</b></div>'
-        +   '</div>'
-        +   '<span class="d3-mp-url">/Adjudicaciones</span>'
-        + '</div>'
-        + '<div class="d3-subbar">'
-        +   '<div class="d3-subbar-left"><small>RUBRO</small><b>Servicios TI · últimos 7 días</b></div>'
-        +   '<div class="d3-filters"><span class="d3-filter">Cerradas</span><span class="d3-filter">Plazo apelación abierto</span></div>'
-        + '</div>'
-        + '<div class="d3-mp-thead">'
-        +   '<span>ID</span><span>Organismo</span><span>Monto</span><span>Oferentes</span>'
-        + '</div>'
-        + rowMP('1057-31-LE25', 'SUBSEC. ECONOMÍA', '$48.2M', '4', false)
-        + rowMP('2034-87-LP25', 'SERVIU METROP.',   '$112M',  '6', false)
-        + rowMP('4521-12-LE25', 'JUNAEB',           '$23.7M', '7', true)
-        + rowMP('1190-09-LE25', 'CORFO',            '$67.9M', '3', false)
-        + rowMP('3318-44-LE25', 'MIN. SALUD',       '$185M',  '5', false);
+    /* ── Helpers ── */
+    function phaseHead(num, label) {
+      return '<div class="d3-phase-head"><span class="d3-phase-num">' + num + '</span><span class="d3-phase-lbl">/ ' + label + '</span></div>';
     }
-    function rowMP(id, prov, monto, oferentes, hl) {
-      return '<div class="d3-mp-row' + (hl ? ' hl' : '') + '">'
-        +   '<span class="d3-mp-id">' + id + '</span>'
-        +   '<span class="d3-mp-prov">' + prov + '</span>'
-        +   '<span class="d3-mp-monto">' + monto + '</span>'
-        +   '<span class="d3-tag ' + (hl ? 'hl' : 'dim') + '">' + oferentes + ' ofert.</span>'
-        + '</div>';
-    }
-
-    /* ---------- OUTPUT (después): MP ---------- */
-    function outputMP() {
-      return ''
-        + '<div class="d3-out-meta"><span class="live">● 6 NO ADJUDICADOS</span><span>CERRADA HACE 2 DÍAS</span></div>'
-        + '<div class="d3-out-code">JUNAEB · 4521-12-LE25</div>'
-        + '<div class="d3-out-title">Servicio de digitalización<br>de archivos escolares</div>'
-        + '<div class="d3-out-sub">Adjudicada a oferente A · 7 oferentes · 6 perdedores</div>'
-        + '<div class="d3-signal-block">'
-        +   '<div class="d3-signal-label">— Lead de la semana</div>'
-        +   '<div class="d3-signal-text">«Soluciones Doc S.A. — 2da posición. Diferencia: 4.2% sobre el ganador. Causal informada: experiencia. Plazo apelación: 3 días hábiles.»</div>'
-        + '</div>'
-        + '<div class="d3-channels">'
-        +   '<div class="d3-channels-label">— Ángulo de acercamiento</div>'
-        +   '<div class="d3-chip-list"><span class="d3-chip">Apelación viable</span><span class="d3-chip">Asesoría próx. licitación</span></div>'
-        + '</div>'
-        + '<a href="#contacto" class="d3-cta">Ver los 6 leads →</a>'
-        + '<div class="d3-foot">— 6 LEADS DE 1 LICITACIÓN</div>';
-    }
-
-    /* ---------- INPUT (antes): Portales inmobiliarios ---------- */
-    function inputPI() {
-      return ''
-        + '<div class="d3-pi-header">'
-        +   '<div class="d3-pi-headinfo">'
-        +     '<div class="d3-pi-badge">P</div>'
-        +     '<div><small>5 portales · sincronizados</small><b>Publicaciones nuevas</b></div>'
-        +   '</div>'
-        +   '<span class="d3-pi-url">RM · Las Condes</span>'
-        + '</div>'
-        + '<div class="d3-subbar">'
-        +   '<div class="d3-subbar-left"><small>FUENTES</small><b>'
-        +     '<span class="d3-dots">'
-        +       '<span class="d3-dot" style="background:#1B44E3"></span>'
-        +       '<span class="d3-dot" style="background:#FF7733"></span>'
-        +       '<span class="d3-dot" style="background:#0B3D7A"></span>'
-        +       '<span class="d3-dot" style="background:#7B61FF"></span>'
-        +       '<span class="d3-dot" style="background:#B4985A"></span>'
-        +     '</span> 5 portales</b></div>'
-        +   '<div class="d3-filters"><span class="d3-filter">Particulares</span><span class="d3-filter">Departamento</span></div>'
-        + '</div>'
-        + rowPI(thumb('#0B3D7A'), 'Depto 3D · Las Condes',     'UF 8.900 · 92m² · Publicado hoy', false)
-        + rowPI(thumb('#7B61FF'), 'Casa 4D · La Reina',         'UF 14.200 · 180m² · Hace 2 días', false)
-        + rowPI(thumb('#FF7733'), 'Depto 2D · Providencia',     'UF 5.400 · 64m² · Bajó precio', true)
-        + rowPI(thumb('#B4985A'), 'Oficina 80m² · Vitacura',    'UF 6.800 · Publicado ayer', false)
-        + rowPI(thumb('#1B44E3'), 'Depto 1D · Ñuñoa',          'UF 3.200 · 38m² · Hace 3 días', false);
-    }
-    function rowPI(thumbSvg, title, sub, hl) {
-      return '<div class="d3-pi-row' + (hl ? ' hl' : '') + '">'
-        +   thumbSvg
-        +   '<div class="d3-pi-info"><b>' + title + '</b><small>' + sub + '</small></div>'
-        +   '<span class="d3-tag ' + (hl ? 'hl' : 'dim') + '">' + (hl ? 'Señal' : 'Nuevo') + '</span>'
-        + '</div>';
+    function phaseConn() {
+      return '<div class="d3-phase-conn"><svg width="14" height="16" viewBox="0 0 14 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1 L7 13 M3 9 L7 13 L11 9"/></svg></div>';
     }
     function thumb(color) {
-      return '<svg class="d3-pi-thumb" width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">'
-        +     '<rect width="42" height="42" fill="' + color + '" opacity="0.18"/>'
-        +     '<rect x="8" y="20" width="26" height="18" fill="' + color + '" opacity="0.55"/>'
-        +     '<path d="M5 22 L21 8 L37 22" stroke="' + color + '" stroke-width="1.4" fill="none"/>'
-        +   '</svg>';
+      return '<svg class="d3-pi-thumb" width="36" height="36" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">'
+        + '<rect width="42" height="42" fill="' + color + '" opacity="0.18"/>'
+        + '<rect x="8" y="20" width="26" height="18" fill="' + color + '" opacity="0.55"/>'
+        + '<path d="M5 22 L21 8 L37 22" stroke="' + color + '" stroke-width="1.4" fill="none"/>'
+        + '</svg>';
+    }
+    function bubble(dir, text, time, checks, sender) {
+      return '<div class="d3-bubble ' + dir + '">'
+        + (sender ? '<span class="d3-bubble-sender">' + sender + '</span>' : '')
+        + text
+        + '<div class="d3-bubble-meta"><span class="d3-bubble-time">' + time + '</span>'
+        + (checks ? '<span style="font-size:11px;opacity:0.75">✓✓</span>' : '')
+        + '</div></div>';
     }
 
-    /* ---------- OUTPUT (después): PI ---------- */
-    function outputPI() {
-      return ''
-        + '<div class="d3-out-meta"><span class="live">● SEÑAL DETECTADA</span><span>HACE 6 MIN</span></div>'
-        + '<div class="d3-gallery">'
-        +   '<svg class="d3-gallery-main" viewBox="0 0 200 110" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">'
-        +     '<rect width="200" height="110" fill="#FF7733" opacity="0.18"/>'
-        +     '<rect x="20" y="55" width="160" height="50" fill="#FF7733" opacity="0.55"/>'
-        +     '<path d="M10 60 L100 12 L190 60" stroke="#FF7733" stroke-width="2" fill="none"/>'
-        +     '<rect x="92" y="68" width="16" height="37" fill="#0B3D7A" opacity="0.6"/>'
-        +   '</svg>'
-        +   '<div class="d3-gallery-row">'
-        +     '<svg viewBox="0 0 100 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="50" fill="#7B61FF" opacity="0.18"/><rect x="20" y="22" width="60" height="22" fill="#7B61FF" opacity="0.5"/></svg>'
-        +     '<svg viewBox="0 0 100 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="50" fill="#B4985A" opacity="0.18"/><circle cx="50" cy="25" r="14" fill="#B4985A" opacity="0.5"/></svg>'
-        +   '</div>'
-        + '</div>'
-        + '<div class="d3-out-title">Depto 2D · Providencia<br>Vendedor particular</div>'
-        + '<div class="d3-out-sub">64m² · Av. Pedro de Valdivia · 1 estac.</div>'
-        + '<div class="d3-price-row"><span>Precio actual</span><b>UF 5.400</b></div>'
-        + '<div class="d3-callout"><span>Bajó UF 200 hace 6 días</span><span>−3.6%</span></div>'
-        + '<div class="d3-signal-block" style="margin-top:12px">'
-        +   '<div class="d3-signal-label">— Por qué califica</div>'
-        +   '<div class="d3-signal-text">«Particular, no broker. Republicó 2 veces. Bajó precio. Señal de urgencia: alta.»</div>'
-        + '</div>'
-        + '<a href="#contacto" class="d3-cta">Ver lead completo →</a>'
-        + '<div class="d3-foot">— 1 DE 47 LEADS HOY</div>';
+    /* ══ MERCADO PÚBLICO ══ */
+
+    function phase1MP() {
+      var rows = [
+        { org: 'MIN. SALUD',   monto: '$412M', adj: true  },
+        { org: 'JUNAEB',       monto: '$234M', adj: false },
+        { org: 'SERVIU METROP.', monto: '$315M', adj: true  },
+        { org: 'CORFO',        monto: '$268M', adj: false },
+      ];
+      var html = '<div class="d3-mp-header">'
+        + '<div class="d3-mp-headinfo"><div class="d3-mp-badge">MP</div>'
+        + '<div><small>mercadopublico.cl</small><b>Licitaciones &gt;$200M · hoy</b></div></div>'
+        + '</div>';
+      rows.forEach(function(r) {
+        html += '<div class="d3-mp-row' + (!r.adj ? ' hl' : '') + '">'
+          + '<span class="d3-mp-prov" style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">' + r.org + '</span>'
+          + '<span style="font-family:\'JetBrains Mono\',monospace;font-size:10px;color:var(--ink-s);flex-shrink:0;margin:0 6px">' + r.monto + '</span>'
+          + '<span class="d3-tag ' + (!r.adj ? 'hl' : 'dim') + '" style="flex-shrink:0">' + (r.adj ? 'Adj.' : 'No adj.') + '</span>'
+          + '</div>';
+      });
+      return html + '<div style="padding:7px 10px;font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--accent);letter-spacing:0.04em">● 2 empresas no adjudicadas detectadas</div>';
     }
 
-    /* ---------- Render ---------- */
+    function phase2MP() {
+      return '<div class="d3-lead-phase">'
+        + '<div class="d3-out-meta" style="margin-bottom:8px"><span class="live">● LEAD GENERADO</span><span>JUNAEB · 4521-12-LE25</span></div>'
+        + '<div class="d3-lead-name-lg">Soluciones Doc S.A.</div>'
+        + '<span class="d3-lead-contact">Rep. Juan Méndez · +56 9 ●●●● ●●●●</span>'
+        + '<div class="d3-lead-reason">Perdió por 4.2% frente al adjudicado. Plazo de apelación: 3 días hábiles.</div>'
+        + '<div class="d3-action-row">'
+        +   '<span class="d3-action-btn wa">WhatsApp</span>'
+        +   '<span class="d3-action-btn em">Correo</span>'
+        + '</div></div>';
+    }
+
+    function phase3MP() {
+      return '<div class="d3-chat-head">'
+        + '<div class="d3-chat-avatar" style="background:#1B44E3">EJ</div>'
+        + '<div class="d3-chat-info"><b>Estudio Jurídico</b><small>● en línea</small></div>'
+        + '</div><div class="d3-chat">'
+        + bubble('out', 'Detectamos que no fueron adjudicados en JUNAEB 4521-12-LE25. Tenemos argumentos para apelar el fallo.', '10:14', true, null)
+        + bubble('in',  '¿Cuáles son las chances? Perdimos por 4.2%.', '10:16', false, 'Soluciones Doc S.A.')
+        + bubble('out', 'Muy buenas. La causal es impugnable. Mandamos propuesta hoy mismo.', '10:17', true, null)
+        + '</div>';
+    }
+
+    /* ══ PORTALES INMOBILIARIOS ══ */
+
+    function phase1PI() {
+      var props = [
+        { title: 'Depto 3D · Las Condes',  price: 'UF 8.900',  tipo: 'INMOB',   hl: false, color: '#0B3D7A' },
+        { title: 'Depto 2D · Providencia', price: 'UF 5.400',  tipo: 'PARTIC.', hl: true,  color: '#FF7733' },
+        { title: 'Casa 4D · La Reina',     price: 'UF 14.200', tipo: 'BROKER',  hl: false, color: '#7B61FF' },
+        { title: 'Depto 1D · Ñuñoa',      price: 'UF 3.200',  tipo: 'PARTIC.', hl: true,  color: '#1B44E3' },
+      ];
+      var html = '<div class="d3-pi-header">'
+        + '<div class="d3-pi-headinfo"><div class="d3-pi-badge">P</div>'
+        + '<div><small>5 portales · RM</small><b>Publicaciones nuevas</b></div></div>'
+        + '</div>';
+      props.forEach(function(p) {
+        html += '<div class="d3-pi-row' + (p.hl ? ' hl' : '') + '">'
+          + thumb(p.color)
+          + '<div class="d3-pi-info"><b>' + p.title + '</b><small>' + p.price + '</small></div>'
+          + '<span class="d3-tag ' + (p.hl ? 'hl' : 'dim') + '">' + p.tipo + '</span>'
+          + '</div>';
+      });
+      return html + '<div style="padding:7px 10px;font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--accent);letter-spacing:0.04em">● 2 vendedores particulares detectados</div>';
+    }
+
+    function phase2PI() {
+      return '<div class="d3-lead-phase">'
+        + '<div class="d3-out-meta" style="margin-bottom:8px"><span class="live">● LEAD CALIFICADO</span><span>HACE 6 MIN</span></div>'
+        + '<div class="d3-lead-name-lg">Carlos R.</div>'
+        + '<span class="d3-lead-contact">+56 9 ●●●● ●●●● · Providencia · UF 5.400</span>'
+        + '<div class="d3-lead-reason">Vendedor particular. Bajó UF 200 en 6 días. Publicó 2 veces. Señal de urgencia alta.</div>'
+        + '<div class="d3-action-row">'
+        +   '<span class="d3-action-btn wa">Ofrecer corretaje</span>'
+        +   '<span class="d3-action-btn em">WhatsApp</span>'
+        + '</div></div>';
+    }
+
+    function phase3PI() {
+      return '<div class="d3-chat-head">'
+        + '<div class="d3-chat-avatar" style="background:#FF7733">BR</div>'
+        + '<div class="d3-chat-info"><b>Broker Especialista</b><small>● en línea</small></div>'
+        + '</div><div class="d3-chat">'
+        + bubble('out', 'Hola Carlos, vi tu depto en Providencia. Soy broker con compradores calificados en la zona.', '11:02', true, null)
+        + bubble('in',  'Llevo 2 meses publicando sin resultados. ¿Qué incluye el servicio?', '11:04', false, 'Carlos R.')
+        + bubble('out', 'Tasación, difusión en 5 portales y cierre en ~30 días. ¿Agendamos mañana?', '11:05', true, null)
+        + '</div>';
+    }
+
+    /* ── Render ── */
     var current = 0;
     var rotateTimer = null;
 
     function render(idx, animate) {
-      var tabs = ''
-        + '<div class="d3-tabs" role="tablist">'
-        +   TABS.map(function(t, i) {
-              return '<button class="d3-tab' + (i === idx ? ' active' : '') + '" data-i="' + i + '" role="tab">' + t.label + '</button>';
-            }).join('')
-        +   '<span class="d3-progress' + (animate ? ' run' : '') + '" style="left:' + (idx * 50) + '%"></span>'
+      var tabs = '<div class="d3-tabs" role="tablist">'
+        + TABS.map(function(t, i) {
+            return '<button class="d3-tab' + (i === idx ? ' active' : '') + '" data-i="' + i + '" role="tab">' + t.label + '</button>';
+          }).join('')
+        + '<span class="d3-progress' + (animate ? ' run' : '') + '" style="left:' + (idx * 50) + '%;animation-duration:' + (currentDelay / 1000) + 's"></span>'
         + '</div>';
 
-      var input = idx === 0 ? inputMP() : inputPI();
-      var output = idx === 0 ? outputMP() : outputPI();
+      var p1 = idx === 0 ? phase1MP() : phase1PI();
+      var p2 = idx === 0 ? phase2MP() : phase2PI();
+      var p3 = idx === 0 ? phase3MP() : phase3PI();
+      var lbl1 = idx === 0 ? 'Detección' : 'Portales · 5 fuentes';
 
-      var body = ''
-        + '<div class="d3-body' + (animate ? ' fade' : '') + '">'
-        +   '<div class="d3-col-input">' + input + '</div>'
-        +   '<div class="d3-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke-width="1.4"><path d="M2 7 L12 7 M8 3 L12 7 L8 11"/></svg></div>'
-        +   '<div class="d3-col-output">' + output + '</div>'
+      var body = '<div class="d3-phases' + (animate ? ' fade' : '') + '">'
+        + '<div class="d3-phase">' + phaseHead('01', lbl1) + p1 + '</div>'
+        + phaseConn()
+        + '<div class="d3-phase">' + phaseHead('02', 'Lead generado') + p2 + '</div>'
+        + phaseConn()
+        + '<div class="d3-phase">' + phaseHead('03', 'Cierre') + p3 + '</div>'
         + '</div>';
 
       mount.innerHTML = tabs + body;
@@ -1344,6 +1418,7 @@
           var i = parseInt(btn.getAttribute('data-i'), 10);
           if (i === current) return;
           current = i;
+          currentDelay = MANUAL_DELAY;
           stopRotate();
           render(i, true);
           startRotate();
@@ -1352,12 +1427,14 @@
     }
 
     function startRotate() {
+      var delay = currentDelay;
       stopRotate();
       rotateTimer = setTimeout(function() {
+        currentDelay = AUTO_DELAY;
         current = (current + 1) % TABS.length;
         render(current, true);
         startRotate();
-      }, 8000);
+      }, delay);
     }
     function stopRotate() {
       if (rotateTimer) { clearTimeout(rotateTimer); rotateTimer = null; }
