@@ -1159,7 +1159,7 @@
     var root = document.documentElement;
     var saved = localStorage.getItem('liminar-theme');
     var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var initial = saved || (prefersDark ? 'dark' : 'light');
+    var initial = saved || 'light';
     root.setAttribute('data-theme', initial);
     var btn = document.getElementById('theme-toggle');
     if (btn) {
