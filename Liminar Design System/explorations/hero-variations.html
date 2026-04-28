@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liminar — Hero Variations</title>
+<link rel="icon" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Inter", sans-serif; background: #EFEFEC; color: #0F0F14; }
+  @keyframes limPulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .35; transform: scale(.65); }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="HeroShell.jsx"></script>
+<script type="text/babel" src="HeroA.jsx"></script>
+<script type="text/babel" src="HeroB.jsx"></script>
+<script type="text/babel" src="HeroC.jsx"></script>
+<script type="text/babel" src="HeroD.jsx"></script>
+<script type="text/babel" src="HeroE.jsx"></script>
+<script type="text/babel" src="HeroF.jsx"></script>
+<script type="text/babel" src="HeroG.jsx"></script>
+<script type="text/babel" src="HeroD2.jsx"></script>
+<script type="text/babel" src="HeroD3.jsx"></script>
+
+<script type="text/babel">
+function CanvasRoot() {
+  return (
+    <DesignCanvas title="Liminar — Hero variations">
+      <DCSection id="d3" title="D3 — Diferenciado por rubro (look nativo de cada portal)">
+        <DCArtboard id="D3" label="D3 · Mercado Público vs Portal Inmobiliario · con thumbs" width={1280} height={720}>
+          <HeroShell><HeroD3 /></HeroShell>
+        </DCArtboard>
+      </DCSection>
+      <DCSection id="d2" title="D2 — Antes / Después con dos rubros (versión previa)">
+        <DCArtboard id="D2" label="D2 · Tabs Abogados / Inmobiliaria · sin datos personales" width={1280} height={720}>
+          <HeroShell><HeroD2 /></HeroShell>
+        </DCArtboard>
+      </DCSection>
+      <DCSection id="animado" title="Animado — conversación real">
+        <DCArtboard id="G" label="G · WhatsApp en vivo · Liminar entrega lead a estudio jurídico" width={1280} height={720}>
+          <HeroShell><HeroG /></HeroShell>
+        </DCArtboard>
+      </DCSection>
+      <DCSection id="explicitas" title="Explícitas — público objetivo entiende qué hace el sistema">
+        <DCArtboard id="D" label="D · Antes / Después (input → output)" width={1280} height={720}>
+          <HeroShell><HeroD /></HeroShell>
+        </DCArtboard>
+        <DCArtboard id="E" label="E · Para tu rubro (tabs)" width={1280} height={720}>
+          <HeroShell><HeroE /></HeroShell>
+        </DCArtboard>
+        <DCArtboard id="F" label="F · Bandeja de leads (CRM-feel)" width={1280} height={720}>
+          <HeroShell><HeroF /></HeroShell>
+        </DCArtboard>
+      </DCSection>
+      <DCSection id="abstractas" title="Anteriores — más abstractas">
+        <DCArtboard id="A" label="A · Lead Dossier" width={1280} height={720}>
+          <HeroShell><HeroA /></HeroShell>
+        </DCArtboard>
+        <DCArtboard id="B" label="B · Pipeline horizontal" width={1280} height={720}>
+          <HeroShell><HeroB /></HeroShell>
+        </DCArtboard>
+        <DCArtboard id="C" label="C · WhatsApp en vivo" width={1280} height={720}>
+          <HeroShell><HeroC /></HeroShell>
+        </DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<CanvasRoot />);
+</script>
+</body>
+</html>

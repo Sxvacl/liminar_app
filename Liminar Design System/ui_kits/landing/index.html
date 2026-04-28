@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liminar — Landing UI Kit</title>
+<link rel="icon" href="../../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #F8F8F7;
+    color: #0F0F14;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body::after {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none;
+    z-index: 9999; opacity: 0.032;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23g)'/%3E%3C/svg%3E");
+  }
+  .w { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+  @media (min-width: 768px)  { .w { padding: 0 48px; } }
+  @media (min-width: 1280px) { .w { padding: 0 80px; } }
+  .nav-loc { display: none; color: #85858E; }
+  @media (min-width: 600px) { .nav-loc { display: block; } }
+
+  .hero-grid { display: grid; gap: 72px; align-items: center; }
+  @media (min-width: 1024px) { .hero-grid { grid-template-columns: 58fr 42fr; gap: 88px; } }
+
+  .dolores-hd { display: grid; gap: 24px; margin-bottom: 60px; }
+  @media (min-width: 960px) { .dolores-hd { grid-template-columns: 1fr 1fr; align-items: end; } }
+  .pain-grid { display: grid; border: 1px solid rgba(15,15,20,0.08); }
+  @media (min-width: 768px) { .pain-grid { grid-template-columns: repeat(3,1fr); } }
+  .pain-card { padding: 40px; border-bottom: 1px solid rgba(15,15,20,0.08); }
+  @media (min-width: 768px) { .pain-card { border-bottom: none; border-right: 1px solid rgba(15,15,20,0.08); } .pain-card:last-child { border-right: none; } }
+
+  .steps { display: grid; border-top: 1px solid rgba(248,248,247,.10); }
+  @media (min-width: 640px)  { .steps { grid-template-columns: repeat(2,1fr); } }
+  @media (min-width: 1024px) { .steps { grid-template-columns: repeat(4,1fr); } }
+  .step { padding: 44px 36px; border-bottom: 1px solid rgba(248,248,247,.10); border-right: 1px solid rgba(248,248,247,.10); }
+  @media (min-width: 1024px) { .step { border-bottom: none; } .step:last-child { border-right: none; } }
+  @media (max-width: 1023px) { .step:nth-child(even) { border-right: none; } }
+
+  .cases-grid { display: grid; border: 1px solid rgba(15,15,20,0.08); }
+  @media (min-width: 768px) { .cases-grid { grid-template-columns: repeat(3,1fr); } }
+  .case-card { padding: 40px 36px 0; display: flex; flex-direction: column; border-bottom: 1px solid rgba(15,15,20,0.08); }
+  @media (min-width: 768px) { .case-card { border-bottom: none; border-right: 1px solid rgba(15,15,20,0.08); } .case-card:last-child { border-right: none; } }
+
+  .cta-grid { display: grid; gap: 80px; align-items: start; }
+  @media (min-width: 960px) { .cta-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .cta-grid { gap: 48px; } }
+
+  textarea { resize: vertical; font-family: 'Inter', sans-serif; }
+  select { cursor: pointer; }
+
+  @keyframes limPulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: .35; transform: scale(.65); }
+  }
+
+  .cl-gray { stroke-dasharray: 420; stroke-dashoffset: 420; animation: drawLine 1.9s cubic-bezier(0.16,1,0.3,1) .95s forwards; }
+  .cl-accent { stroke-dasharray: 300; stroke-dashoffset: 300; animation: drawLine 1.3s cubic-bezier(0.16,1,0.3,1) 2.15s forwards; }
+  @keyframes drawLine { to { stroke-dashoffset: 0; } }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #EFEFEC; }
+  ::-webkit-scrollbar-thumb { background: rgba(15,15,20,0.26); border-radius: 3px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="data.js"></script>
+<script type="text/babel" src="primitives.jsx"></script>
+<script type="text/babel" src="Nav.jsx"></script>
+<script type="text/babel" src="Hero.jsx"></script>
+<script type="text/babel" src="Dolores.jsx"></script>
+<script type="text/babel" src="Proceso.jsx"></script>
+<script type="text/babel" src="Casos.jsx"></script>
+<script type="text/babel" src="CTA.jsx"></script>
+<script type="text/babel" src="App.jsx"></script>
+
+<script type="text/babel">
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+  root.render(<App />);
+</script>
+</body>
+</html>

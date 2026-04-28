@@ -1,0 +1,229 @@
+/* =========================================================
+   Liminar Design System — Colors & Type
+   Source of truth: Landing/index.html (Liminar marketing site)
+   ========================================================= */
+
+/* ── Webfonts ─────────────────────────────────────────────
+   Liminar loads three families from Google Fonts:
+   - Fraunces (variable, optical sizing) — display / serif
+   - Inter — body
+   - JetBrains Mono — eyebrows, tags, labels, footers
+*/
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  /* ── BASE COLORS ──────────────────────────────────────── */
+  --bg:        #F8F8F7;   /* page bg — warm off-white, "paper" */
+  --bg2:       #EFEFEC;   /* secondary bg — slightly deeper paper, used for CTA section, hover fills */
+  --bg-deep:   #0C0C10;   /* near-black inverted bg — used for "Método" / process section */
+  --ink:       #0F0F14;   /* primary text — near-black with a hint of blue */
+  --ink-s:     #424248;   /* secondary text — muted body */
+  --ink-m:     #85858E;   /* tertiary text — eyebrows, captions, monospace meta */
+  --accent:    #1B44E3;   /* brand cobalt — single highlight color, used for italic emphasis,
+                             primary CTA, dot, accent on dark bg uses lighter variant */
+  --accent-s:  #BDC8F5;   /* light cobalt — used for italic emphasis ON DARK background */
+
+  /* ── LINES & DIVIDERS ─────────────────────────────────── */
+  --line:      rgba(15,15,20,0.08);  /* hairline, between cards/sections on light */
+  --line-s:    rgba(15,15,20,0.26);  /* stronger hairline, button borders, input borders */
+
+  /* ── SEMANTIC FILLS (computed) ────────────────────────── */
+  --accent-press: #0F30C2;            /* darker cobalt — active / hover-shift on accent CTAs */
+  --accent-tint:  rgba(27,68,227,0.06); /* form success bg, focus ring tint */
+  --accent-ring:  rgba(27,68,227,0.10); /* input focus shadow ring */
+
+  /* Inverted (on --bg-deep) */
+  --ink-inv:        #F8F8F7;
+  --ink-inv-s:      rgba(248,248,247,0.42);
+  --ink-inv-m:      rgba(248,248,247,0.28);
+  --line-inv:       rgba(248,248,247,0.10);
+  --line-inv-soft:  rgba(248,248,247,0.06);
+
+  /* ── TYPE FAMILIES ────────────────────────────────────── */
+  --font-display: "Fraunces", "Times New Roman", serif;   /* H1/H2/H3, brand wordmark */
+  --font-body:    "Inter", system-ui, sans-serif;          /* paragraphs, buttons */
+  --font-mono:    "JetBrains Mono", ui-monospace, monospace; /* eyebrows, tags, numerals, footer */
+
+  /* ── TYPE SCALE (px-equivalents in rem) ───────────────── */
+  --t-display-xl: clamp(2.5rem, 5.5vw, 4.25rem);   /* hero h1 (~40–68px) */
+  --t-display-l:  clamp(2.25rem, 5vw, 3.5rem);     /* CTA section h2 */
+  --t-display-m:  clamp(2rem, 4vw, 3rem);          /* dolores h2 */
+  --t-display-s:  clamp(1.875rem, 3.5vw, 2.875rem);/* proceso / casos h2 */
+  --t-h3:         1.25rem;                          /* card titles */
+  --t-quote:      1.1875rem;                        /* italic pull quotes */
+  --t-lede:       1.0625rem;                        /* hero lede */
+  --t-body:       1rem;                             /* default body */
+  --t-body-s:     0.9375rem;                        /* card desc / inputs */
+  --t-small:      0.875rem;                         /* meta, button-lg */
+  --t-xs:         0.8125rem;                        /* default button */
+  --t-mono:       0.6875rem;                        /* eyebrows */
+  --t-mono-xs:    0.625rem;                         /* form labels */
+
+  /* ── TYPE WEIGHTS (Liminar uses LIGHT serif weights) ── */
+  --w-display:    400;   /* default headlines */
+  --w-italic:     300;   /* italic emphasis (lighter than upright) */
+  --w-body:       400;
+  --w-medium:     500;   /* button labels, strong, ledes */
+
+  /* ── LINE-HEIGHT ──────────────────────────────────────── */
+  --lh-display-xl: 1.05;
+  --lh-display:    1.1;
+  --lh-display-s:  1.12;
+  --lh-h3:         1.3;
+  --lh-quote:      1.45;
+  --lh-lede:       1.68;
+  --lh-body:       1.65;
+
+  /* ── LETTER-SPACING ───────────────────────────────────── */
+  --ls-display-xl: -0.025em;
+  --ls-display:    -0.02em;
+  --ls-mono:       0.06em;     /* eyebrows */
+  --ls-mono-tag:   0.04em;     /* source tags / chart labels */
+
+  /* ── RADII (Liminar is mostly squared off) ────────────── */
+  --r-pill:    999px;   /* buttons */
+  --r-input:   4px;     /* inputs, source tags, success banner */
+  --r-card:    0;       /* cards are sharp — bordered grid, no rounding */
+
+  /* ── SPACING (8px base, generous editorial rhythm) ───── */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  20px;
+  --s-6:  24px;
+  --s-7:  32px;
+  --s-8:  40px;
+  --s-9:  48px;
+  --s-10: 64px;
+  --s-11: 80px;
+  --s-12: 112px;   /* section padding */
+  --s-13: 128px;   /* hero / cta padding */
+
+  /* ── LAYOUT ───────────────────────────────────────────── */
+  --w-max:     1280px;
+  --gutter-sm: 24px;
+  --gutter-md: 48px;
+  --gutter-lg: 80px;
+
+  /* ── MOTION ───────────────────────────────────────────── */
+  --ease:        cubic-bezier(0.16, 1, 0.3, 1);   /* expo-out, "settle" */
+  --dur-quick:   0.22s;
+  --dur-base:    0.28s;
+  --dur-rise:    0.72s;   /* hero entrance */
+  --dur-draw:    1.9s;    /* chart draw */
+
+  /* ── ELEVATION ────────────────────────────────────────── */
+  /* Liminar avoids drop shadows. Elevation = bordered cards on bg, or
+     full-bleed inverted sections. Only "shadow" used is the focus ring. */
+  --shadow-focus: 0 0 0 3px var(--accent-ring);
+  --shadow-none:  none;
+
+  /* ── GRAIN ────────────────────────────────────────────── */
+  /* Subtle fractal-noise overlay applied via body::after at 0.032 opacity.
+     Defined here as a reusable url() token. */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+
+/* ── SEMANTIC TYPE STYLES ──────────────────────────────────
+   Apply with class names on elements, e.g. <h1 class="t-display-xl">.
+   Mirror Liminar's editorial heading rhythm. Italic = brand voice.
+*/
+.t-eyebrow,
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--t-mono);
+  font-weight: var(--w-medium);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  color: var(--ink-m);
+}
+
+.t-display-xl {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--t-display-xl);
+  font-weight: var(--w-display);
+  line-height: var(--lh-display-xl);
+  letter-spacing: var(--ls-display-xl);
+}
+.t-display-l {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--t-display-l);
+  font-weight: var(--w-display);
+  line-height: 1.08;
+  letter-spacing: var(--ls-display-xl);
+}
+.t-display-m {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--t-display-m);
+  font-weight: var(--w-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+}
+.t-display-s {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--t-display-s);
+  font-weight: var(--w-display);
+  line-height: var(--lh-display-s);
+  letter-spacing: var(--ls-display);
+}
+.t-h3 {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: var(--t-h3);
+  font-weight: var(--w-display);
+  line-height: var(--lh-h3);
+}
+.t-quote {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-style: italic;
+  font-weight: var(--w-display);
+  font-size: var(--t-quote);
+  line-height: var(--lh-quote);
+}
+.t-lede {
+  font-family: var(--font-body);
+  font-size: var(--t-lede);
+  line-height: var(--lh-lede);
+  color: var(--ink-s);
+}
+.t-body {
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  color: var(--ink-s);
+}
+.t-body-s {
+  font-family: var(--font-body);
+  font-size: var(--t-body-s);
+  line-height: var(--lh-body);
+  color: var(--ink-s);
+}
+.t-small {
+  font-family: var(--font-body);
+  font-size: var(--t-small);
+  line-height: 1.5;
+  color: var(--ink-s);
+}
+
+/* Brand convention: italic in display headings = lighter weight + accent color
+   (or accent-s on dark bg). */
+.t-display-xl em,
+.t-display-l em,
+.t-display-m em,
+.t-display-s em {
+  font-style: italic;
+  font-weight: var(--w-italic);
+  color: var(--accent);
+}
+.on-dark .t-display-xl em,
+.on-dark .t-display-l em,
+.on-dark .t-display-m em,
+.on-dark .t-display-s em {
+  color: var(--accent-s);
+}

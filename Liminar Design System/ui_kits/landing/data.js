@@ -1,0 +1,71 @@
+window.LIMINAR_DATA = {
+  nav: {
+    location: "Santiago · CL",
+    cta: "Conversemos →",
+  },
+  hero: {
+    eyebrow: "Lead generation · Datos accionables",
+    h1Pre: "Tus próximos clientes",
+    h1Em: "ya están en internet.",
+    h1Post: "Nosotros los encontramos.",
+    lede: "Monitoreamos **Mercado Público, portales inmobiliarios y sistemas judiciales** para detectar señales de compra antes que tu competencia. Entregamos contactos calificados — personas que ya tienen el problema que tú resuelves, en el momento exacto en que lo están viviendo.",
+    primary: "Agenda diagnóstico gratis →",
+    ghost: "Ver cómo funciona",
+    sources: ["Mercado Público", "Portal Inmobiliario", "SIMEF / Poder Judicial", "Yapo · Toctoc", "Diario Oficial"],
+  },
+  dolores: {
+    tag: "01 / Diagnóstico",
+    h2Pre: "¿Te suena ",
+    h2Em: "familiar?",
+    sub: "Tres síntomas que vemos en casi todos los negocios que llegan a Liminar.",
+    items: [
+      { num: "01", quote: "«Pago publicidad pero los leads no convierten.»", answerPre: "Llegamos a contactos que ", answerStrong: "ya tienen el problema", answerPost: " — no a personas que quizás algún día lo tengan." },
+      { num: "02", quote: "«Tengo data pero no sé qué hacer con ella.»", answerPre: "Convertimos tus planillas y sistemas en ", answerStrong: "clientes accionables esta semana.", answerPost: "" },
+      { num: "03", quote: "«Pierdo horas haciendo lo mismo cada semana.»", answerPre: "Automatizamos el proceso. Lo configuramos una vez y ", answerStrong: "funciona solo mientras tú vendes.", answerPost: "" },
+    ],
+  },
+  proceso: {
+    tag: "02 / Método",
+    h2Pre: "Del dato disperso a la ",
+    h2Em: "oportunidad cerrada.",
+    steps: [
+      { num: "01", title: "Diagnóstico gratuito.", desc: "30 minutos. Mapeamos tu industria, tus fuentes disponibles y las señales que más predicen intención de compra." },
+      { num: "02", title: "Diseño del flujo.", desc: "Definimos qué datos cruzamos, qué señales monitoreamos y cómo calificamos antes de entregarte cada contacto." },
+      { num: "03", title: "Extracción y cruce.", desc: "Trabajamos sobre fuentes públicas y tus sistemas existentes. Sin comprar bases. Sin cold lists genéricas." },
+      { num: "04", title: "Entrega recurrente.", desc: "Recibes un flujo limpio y continuo de contactos listos para conversar. Tú cierras. Nosotros seguimos encontrando." },
+    ],
+  },
+  casos: {
+    tag: "03 / Casos",
+    h2Pre: "Lo que ya está ",
+    h2Em: "funcionando.",
+    items: [
+      { tag: "Real Estate · Portal Inmobiliario", title: "Vendedores particulares convertidos en clientes de broker.", desc: "Monitoreamos publicaciones nuevas de vendedores particulares en portales inmobiliarios. Calificamos por precio, tipo y señales de urgencia. El broker recibe el contacto ya segmentado — llega antes que cualquier otra inmobiliaria.", result: "Pipeline activo de propiedades captadas. Cero gasto en pauta." },
+      { tag: "Jurídico · Mercado Público", title: "Empresas que perdieron licitaciones. Leads con urgencia declarada.", desc: "Scrapeamos ChileCompra, identificamos empresas no adjudicadas y enriquecemos con contacto del representante legal. El estudio jurídico llega con contexto — sabe exactamente qué licitación perdieron y por qué podrían necesitar asesoría.", result: "Flujo semanal de leads calificados con contacto enriquecido." },
+      { tag: "Mediación · SIMEF", title: "Agenda llena. Partes notificadas. Sin inasistencias.", desc: "Extraemos causas activas del sistema SIMEF, identificamos las audiencias de la semana y enviamos recordatorios automáticos a demandante y demandado vía WhatsApp y email. El centro llega exactamente cuando el conflicto está caliente.", result: "Tasa de conversión sobre 70%. Agenda siempre activa." },
+    ],
+  },
+  cta: {
+    h2Pre: "¿Cuál es la oportunidad",
+    h2Em: "no estás viendo?",
+    h2Mid: "que ",
+    sub: "30 minutos de diagnóstico. Si no identificamos al menos una fuente de leads concreta para tu negocio, no insistimos.",
+    contactLabel: "Contacto directo",
+    email: "josediazadaros@gmail.com",
+    whatsapp: "+56 9 6120 8729 (WhatsApp)",
+    formNote: "Sin spam. Solo te escribimos para coordinar la llamada.",
+    submit: "Enviar →",
+    success: "Recibido. Te contactamos en menos de 24 horas para coordinar.",
+    situations: [
+      ["leads-frios", "Mis leads son fríos o no convierten"],
+      ["sin-pipeline", "No tengo un pipeline constante"],
+      ["proceso-manual", "Proceso de prospección muy manual"],
+      ["data-sin-usar", "Tengo data que no estoy usando"],
+      ["otro", "Otro"],
+    ],
+  },
+  footer: {
+    brand: "Liminar",
+    copy: "Liminar · 2026 · Hecho en Santiago",
+  },
+};
