@@ -324,6 +324,35 @@
       margin-left: auto;
     }
 
+    /* ── HERO STEPS (la idea en 3 pasos) ── */
+    .hero-steps {
+      list-style: none; margin: 0; padding: 0;
+      max-width: 460px; margin-left: auto; position: relative;
+    }
+    .hstep {
+      position: relative; display: flex; gap: 22px; padding-bottom: 34px;
+    }
+    .hstep:last-child { padding-bottom: 0; }
+    .hstep:not(:last-child)::before {
+      content: ''; position: absolute; left: 19px; top: 40px; bottom: 6px;
+      width: 1.5px; background: linear-gradient(var(--accent), var(--line-s));
+    }
+    .hstep-dot {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
+      border: 1.5px solid var(--accent); color: var(--accent);
+      display: grid; place-items: center; background: var(--bg);
+      font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500;
+      position: relative; z-index: 1;
+    }
+    .hstep-body { padding-top: 7px; }
+    .hstep-title {
+      font-family: 'Fraunces', serif; font-optical-sizing: auto;
+      font-size: 1.1875rem; font-weight: 500; line-height: 1.3;
+      color: var(--ink); margin-bottom: 6px; letter-spacing: -0.01em;
+    }
+    .hstep-desc { font-size: .9375rem; line-height: 1.6; color: var(--ink-s); }
+    @media (max-width: 1023px) { .hero-steps { margin: 0 auto; } }
+
     /* Tabs — su propia card */
     .d3-tabs { display: flex; border-bottom: 1px solid var(--line); position: relative;
       border: 1px solid var(--line-s); border-radius: 4px; overflow: hidden;
@@ -946,6 +975,14 @@
     .form-field select { cursor: pointer; color: var(--ink); }
     .form-field select option { color: var(--ink); }
 
+    /* Teléfono: selector de código país + número */
+    .phone-row { display: flex; gap: 8px; }
+    .phone-row .phone-cc {
+      flex: 0 0 auto; width: auto; min-width: 104px;
+      padding-left: 12px; padding-right: 10px; cursor: pointer;
+    }
+    .phone-row .phone-num { flex: 1 1 auto; min-width: 0; }
+
     .form-submit {
       display: flex;
       align-items: center;
@@ -1156,24 +1193,48 @@
       <div>
         <div class="h-eyebrow">
           <span class="h-eyebrow-dot" aria-hidden="true"></span>
-          <span class="mono" style="color:var(--ink-m)">Generación de leads · Para casi cualquier industria</span>
+          <span class="mono" style="color:var(--ink-m)">Agentes de prospección · Multi-rubro</span>
         </div>
         <h1 class="hero-h1 serif">
           Tus próximos clientes<br>
-          <em>ya están en internet.</em><br>
+          <em>ya existen.</em><br>
           Nosotros los encontramos.
         </h1>
         <p class="hero-lede">
-          Detectamos señales de compra en tiempo real y entregamos contactos calificados — personas que <strong>ya tienen el problema</strong>, en el momento exacto en que lo están viviendo.
+          Hay clientes listos para comprarte que tu competencia no ve. Nuestros <strong>agentes</strong> trabajan tras bambalinas para encontrarlos, calificarlos y entregártelos <strong>listos para vender</strong>. Y si quieres, también los abordan por ti.
         </p>
         <div class="hero-ctas">
           <a href="#cta"     class="btn btn-accent btn-lg">Agenda diagnóstico gratis →</a>
-          <a href="#proceso" class="btn btn-ghost  btn-lg">Ver cómo funciona</a>
+          <a href="#casos" class="btn btn-ghost  btn-lg">Ver casos de éxito</a>
         </div>
       </div>
 
-      <!-- Hero D3 — Antes / Después con dos rubros (montado por JS) -->
-      <div class="hero-d3" id="hero-d3"></div>
+      <!-- Hero — la idea en 3 pasos simples -->
+      <div class="hero-d3" id="hero-d3">
+        <ol class="hero-steps">
+          <li class="hstep">
+            <span class="hstep-dot">01</span>
+            <div class="hstep-body">
+              <div class="hstep-title">Nos dices a quién quieres llegar</div>
+              <p class="hstep-desc">Tu cliente ideal: rubro, perfil y zona.</p>
+            </div>
+          </li>
+          <li class="hstep">
+            <span class="hstep-dot">02</span>
+            <div class="hstep-body">
+              <div class="hstep-title">Nuestros agentes lo encuentran</div>
+              <p class="hstep-desc">Rastrean a quién está listo para comprarte, donde nadie más mira.</p>
+            </div>
+          </li>
+          <li class="hstep">
+            <span class="hstep-dot">03</span>
+            <div class="hstep-body">
+              <div class="hstep-title">Lo recibes listo para vender</div>
+              <p class="hstep-desc">Contacto verificado y accionable. Y si quieres, agentes de outreach igual de inteligentes —con reglas de tu rubro— lo abordan por ti.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
       <!-- (gráfico anterior conservado oculto como fallback) -->
       <div class="hero-chart" aria-hidden="true" style="display:none">
         <svg viewBox="0 0 480 308" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1246,115 +1307,51 @@
   </div>
 </section>
 
-<!-- 01 / DOLORES -->
-<section id="dolores" aria-labelledby="dolores-h">
-  <div class="w">
-    <div class="stag">
-      <span class="mono stag-txt">01 / Diagnóstico</span>
-      <span class="stag-rule" aria-hidden="true"></span>
-    </div>
-    <div class="dolores-hd">
-      <h2 id="dolores-h" class="dolores-h2 serif">¿Te suena <em>familiar?</em></h2>
-      <p class="dolores-sub">Tres síntomas que vemos en casi todos los negocios que llegan a Liminar.</p>
-    </div>
-    <div class="pain-grid">
-      <div class="pain-card">
-        <span class="mono pain-num">01</span>
-        <p class="pain-quote">«Pago publicidad pero los leads no convierten.»</p>
-        <p class="pain-answer">Llegamos a contactos que <strong>ya tienen el problema</strong> — no a personas que quizás algún día lo tengan.</p>
-      </div>
-      <div class="pain-card">
-        <span class="mono pain-num">02</span>
-        <p class="pain-quote">«Tengo data pero no sé qué hacer con ella.»</p>
-        <p class="pain-answer">Convertimos tus planillas y sistemas en <strong>clientes accionables esta semana.</strong></p>
-      </div>
-      <div class="pain-card">
-        <span class="mono pain-num">03</span>
-        <p class="pain-quote">«Pierdo horas haciendo lo mismo cada semana.»</p>
-        <p class="pain-answer">Automatizamos el proceso. Lo configuramos una vez y <strong>funciona solo mientras tú vendes.</strong></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 02 / PROCESO -->
-<section id="proceso" aria-labelledby="proceso-h">
-  <div class="w">
-    <div class="stag proceso-stag">
-      <span class="mono stag-txt">02 / Método</span>
-      <span class="stag-rule" aria-hidden="true"></span>
-    </div>
-    <h2 id="proceso-h" class="proceso-h2 serif">Del dato disperso a la <em>oportunidad cerrada.</em></h2>
-    <div class="steps">
-      <div class="step">
-        <span class="mono step-num">01</span>
-        <div class="step-title">Diagnóstico gratuito.</div>
-        <p class="step-desc">30 minutos para mapear tu industria y las señales que más predicen intención de compra.</p>
-      </div>
-      <div class="step">
-        <span class="mono step-num">02</span>
-        <div class="step-title">Diseño del flujo.</div>
-        <p class="step-desc">Definimos las fuentes, las señales y el criterio de calificación antes de tocar un dato.</p>
-      </div>
-      <div class="step">
-        <span class="mono step-num">03</span>
-        <div class="step-title">Extracción y cruce.</div>
-        <p class="step-desc">Fuentes públicas y sistemas existentes — sin comprar bases ni listas genéricas.</p>
-      </div>
-      <div class="step">
-        <span class="mono step-num">04</span>
-        <div class="step-title">Entrega recurrente.</div>
-        <p class="step-desc">Flujo continuo de contactos listos para conversar. Tú cierras — nosotros seguimos encontrando.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 03 / COBRO -->
-<section id="cobro" aria-labelledby="cobro-h">
-  <div class="w">
-    <div class="stag">
-      <span class="mono stag-txt">03 / Modelo</span>
-      <span class="stag-rule" aria-hidden="true"></span>
-    </div>
-    <h2 id="cobro-h" class="cobro-h2 serif">Sin letra chica. <em>Tres modelos.</em></h2>
-    <p class="cobro-sub">Adaptamos el cobro al riesgo y escala de cada cliente. El modelo se define antes de empezar, sin sorpresas.</p>
-    <div class="cobro-grid">
-      <div class="cobro-card">
-        <span class="cobro-icon">◎</span>
-        <div class="cobro-name serif">Por contacto entregado</div>
-        <p class="cobro-desc">Pagas solo por cada contacto que cumple los criterios acordados. Sin entrega, sin costo.</p>
-        <span class="cobro-when">Ideal para</span>
-        <p class="cobro-when-val">Primeras pruebas. Equipos que quieren validar antes de escalar.</p>
-      </div>
-      <div class="cobro-card">
-        <span class="cobro-icon">◈</span>
-        <div class="cobro-name serif">Retainer mensual</div>
-        <p class="cobro-desc">Flujo constante de leads dentro de un volumen mínimo garantizado. Precio predecible.</p>
-        <span class="cobro-when">Ideal para</span>
-        <p class="cobro-when-val">Equipos que necesitan pipeline continuo y predecible mes a mes.</p>
-      </div>
-      <div class="cobro-card">
-        <span class="cobro-icon">◉</span>
-        <div class="cobro-name serif">Exclusividad sectorial</div>
-        <p class="cobro-desc">Bloqueamos el sistema para tu industria en tu zona. Tu competencia no accede al mismo pipeline.</p>
-        <span class="cobro-when">Ideal para</span>
-        <p class="cobro-when-val">Empresas que buscan ventaja competitiva sostenida en su vertical.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 04 / CASOS -->
+<!-- 01 / CASOS -->
 <section id="casos" aria-labelledby="casos-h">
   <div class="w">
     <div class="stag">
-      <span class="mono stag-txt">04 / Casos</span>
+      <span class="mono stag-txt">01 / Casos</span>
       <span class="stag-rule" aria-hidden="true"></span>
     </div>
     <h2 id="casos-h" class="casos-h2 serif">Lo que ya está <em>funcionando.</em></h2>
     <p class="casos-intro">Cada cliente, su propio sistema. Cambia entre casos para ver cómo se ve en cada rubro.</p>
     <div id="cases-widget" class="cases-widget"><!-- montado por JS --></div>
+  </div>
+</section>
+
+<!-- 02 / MODELO -->
+<section id="cobro" aria-labelledby="cobro-h">
+  <div class="w">
+    <div class="stag">
+      <span class="mono stag-txt">02 / Modelo</span>
+      <span class="stag-rule" aria-hidden="true"></span>
+    </div>
+    <h2 id="cobro-h" class="cobro-h2 serif">Sin letra chica. <em>Tres formas de trabajar.</em></h2>
+    <p class="cobro-sub">Adaptamos el cobro al riesgo y la escala de cada cliente. Definimos el modelo antes de empezar — sin sorpresas y sin permanencias forzadas.</p>
+    <div class="cobro-grid">
+      <div class="cobro-card">
+        <span class="cobro-icon">◎</span>
+        <div class="cobro-name serif">Por oportunidad entregada</div>
+        <p class="cobro-desc">Pagas solo por cada lead u oportunidad que cumple los criterios acordados. Sin entrega, sin costo.</p>
+        <span class="cobro-when">Ideal para</span>
+        <p class="cobro-when-val">Primeras pruebas y pilotos. Validar el flujo antes de escalar.</p>
+      </div>
+      <div class="cobro-card">
+        <span class="cobro-icon">◈</span>
+        <div class="cobro-name serif">Suscripción mensual</div>
+        <p class="cobro-desc">Flujo continuo de leads y oportunidades dentro de un volumen mínimo garantizado. Precio fijo y predecible.</p>
+        <span class="cobro-when">Ideal para</span>
+        <p class="cobro-when-val">Equipos que necesitan pipeline constante mes a mes.</p>
+      </div>
+      <div class="cobro-card">
+        <span class="cobro-icon">◉</span>
+        <div class="cobro-name serif">Exclusividad sectorial</div>
+        <p class="cobro-desc">Bloqueamos el sistema para tu industria y tu zona. Tu competencia no accede al mismo pipeline.</p>
+        <span class="cobro-when">Ideal para</span>
+        <p class="cobro-when-val">Quienes buscan una ventaja competitiva sostenida en su vertical.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1371,7 +1368,7 @@
         <li class="ind-check">Hay una fuente pública donde tus clientes se vuelven visibles antes de contactar a alguien.</li>
         <li class="ind-check">Existe un evento claro de intención de compra: licitación, publicación, registro, causa, permiso.</li>
         <li class="ind-check">Tu equipo puede cerrar si llega el contacto en el momento justo.</li>
-        <li class="ind-check">Quieres probar con un piloto de 4–6 semanas antes de comprometerte.</li>
+        <li class="ind-check">Prefieres partir en pequeño y escalar solo si los resultados acompañan — sin amarras.</li>
       </ul>
     </div>
   </div>
@@ -1417,6 +1414,24 @@
             <input type="email" id="email" name="email" placeholder="tu@email.com" required>
           </div>
           <div class="form-field">
+            <label for="telefono">Teléfono <span style="text-transform:none;letter-spacing:0;color:var(--ink-m)">(opcional)</span></label>
+            <div class="phone-row">
+              <select id="codigo" name="codigo" class="phone-cc" aria-label="Código de país">
+                <option value="+56" selected>🇨🇱 +56</option>
+                <option value="+54">🇦🇷 +54</option>
+                <option value="+57">🇨🇴 +57</option>
+                <option value="+51">🇵🇪 +51</option>
+                <option value="+52">🇲🇽 +52</option>
+                <option value="+598">🇺🇾 +598</option>
+                <option value="+591">🇧🇴 +591</option>
+                <option value="+593">🇪🇨 +593</option>
+                <option value="+34">🇪🇸 +34</option>
+                <option value="+1">🇺🇸 +1</option>
+              </select>
+              <input type="tel" id="telefono" name="telefono" class="phone-num" placeholder="9 1234 5678" inputmode="tel" autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-field">
             <label for="situacion">¿Cuál es tu principal desafío comercial?</label>
             <select id="situacion" name="situacion">
               <option value="" disabled selected>Selecciona una opción</option>
@@ -1426,6 +1441,10 @@
               <option value="data-sin-usar">Tengo data que no estoy usando</option>
               <option value="otro">Otro</option>
             </select>
+          </div>
+          <div class="form-field" id="otro-field" style="display:none">
+            <label for="otro_detalle">Cuéntanos cuál</label>
+            <input type="text" id="otro_detalle" name="otro_detalle" placeholder="Describe brevemente tu desafío...">
           </div>
           <div class="form-submit">
             <p class="form-note">Sin spam. Solo te escribimos para coordinar la llamada.</p>
@@ -1481,76 +1500,6 @@
       if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
   });
-
-  /* ─────────────────────────────────────────────────────────
-     HERO WIDGET — la solución concreta de Liminar:
-     señal pública detectada → lead calificado → entregado.
-     ───────────────────────────────────────────────────────── */
-  (function() {
-    var mount = document.getElementById('hero-d3');
-    if (!mount) return;
-
-    function phaseHead(num, label) {
-      return '<div class="d3-phase-head"><span class="d3-phase-num">' + num + '</span><span class="d3-phase-lbl">/ ' + label + '</span></div>';
-    }
-    function phaseConn() {
-      return '<div class="d3-phase-conn"><svg width="14" height="16" viewBox="0 0 14 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1 L7 13 M3 9 L7 13 L11 9"/></svg></div>';
-    }
-
-    /* 01 · Rastreamos fuentes públicas y detectamos señales de compra */
-    var SIGNALS = [
-      { a: 'Una empresa publica un requerimiento', b: 'Licitación' },
-      { a: 'Alguien publica su propiedad en venta', b: 'Portal' },
-      { a: 'Una persona busca comprar un vehículo', b: 'Autos' },
-      { a: 'Un proveedor queda fuera de licitación', b: 'Registro' }
-    ];
-    function phase1() {
-      var html = '<div class="d3-pi-header">'
-        + '<div class="d3-pi-headinfo"><div class="d3-pi-badge" style="background:var(--accent)">◎</div>'
-        + '<div><small>Fuentes públicas · multi-rubro</small><b>Señales de compra · hoy</b></div></div>'
-        + '<span class="d3-flag">● EN VIVO</span>'
-        + '</div>'
-        + '<div class="d3-subbar"><div class="d3-subbar-left"><small>Detectadas hoy</small><b>1.247 con intención de compra</b></div><span class="d3-flag">scan ●●●</span></div>';
-      SIGNALS.forEach(function(row) {
-        html += '<div class="d3-mp-row hl">'
-          + '<span class="d3-mp-prov" style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">' + row.a + '</span>'
-          + '<span class="d3-tag hl" style="flex-shrink:0">' + row.b + '</span>'
-          + '</div>';
-      });
-      return html + '<div style="padding:7px 10px;font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--accent);letter-spacing:0.04em">● Cada señal = alguien que ya tiene el problema, ahora</div>';
-    }
-
-    /* 02 · La calificamos: contacto verificado, sin pauta ni listas frías */
-    function phase2() {
-      return '<div class="d3-lead-phase">'
-        + '<div class="d3-out-meta" style="margin-bottom:8px"><span class="live">● LEAD CALIFICADO</span><span>HACE 3 MIN</span></div>'
-        + '<div class="d3-lead-name-lg">Contacto ●●●●●●</div>'
-        + '<span class="d3-lead-contact">+56 9 ●●●● ●●●● · dato verificado</span>'
-        + '<div class="d3-lead-reason">Mostró intención de compra en una fuente pública. Contacto validado y enriquecido — sin pauta, sin listas frías.</div>'
-        + '<div class="d3-action-row">'
-        +   '<span class="d3-action-btn wa">WhatsApp</span>'
-        +   '<span class="d3-action-btn em">Correo</span>'
-        + '</div></div>';
-    }
-
-    /* 03 · Te lo entregamos listo para cerrar, por tu canal */
-    function phase3() {
-      return '<div class="d3-lead-phase">'
-        + '<div class="d3-out-meta" style="margin-bottom:10px"><span class="live">● ENTREGADO A TU EQUIPO</span><span>LISTO PARA CERRAR</span></div>'
-        + '<div class="d3-channels"><div class="d3-channels-label">Por el canal que prefieras</div>'
-        + '<div class="d3-chip-list"><span class="d3-chip">WhatsApp</span><span class="d3-chip">Email</span><span class="d3-chip">CRM</span><span class="d3-chip">Planilla</span></div></div>'
-        + '<div class="d3-callout"><span>Tú cierras</span><span>Nosotros seguimos encontrando</span></div>'
-        + '</div>';
-    }
-
-    mount.innerHTML = '<div class="d3-phases">'
-      + '<div class="d3-phase">' + phaseHead('01', 'Detectamos la señal') + phase1() + '</div>'
-      + phaseConn()
-      + '<div class="d3-phase">' + phaseHead('02', 'La calificamos') + phase2() + '</div>'
-      + phaseConn()
-      + '<div class="d3-phase">' + phaseHead('03', 'Te la entregamos') + phase3() + '</div>'
-      + '</div>';
-  })();
 
   /* ─────────────────────────────────────────────────────────
      CASOS DE ÉXITO — widget que cambia entre casos.
@@ -1794,6 +1743,20 @@
 
     render(0, false);
     startRotate();
+  })();
+
+  /* Campo "Otro" del select de desafío */
+  (function() {
+    var sel = document.getElementById('situacion');
+    var otro = document.getElementById('otro-field');
+    var otroInput = document.getElementById('otro_detalle');
+    if (!sel || !otro) return;
+    sel.addEventListener('change', function() {
+      var show = sel.value === 'otro';
+      otro.style.display = show ? 'flex' : 'none';
+      if (show) { otroInput.setAttribute('required', ''); otroInput.focus(); }
+      else { otroInput.removeAttribute('required'); }
+    });
   })();
 
   /* Formspree AJAX submit */
