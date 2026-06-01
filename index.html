@@ -3,13 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liminar — Lead Generation & Automatización de Datos</title>
-  <meta name="description" content="Monitoreamos portales públicos, registros legales y señales digitales para encontrar a tus próximos clientes antes que tu competencia.">
-  <meta property="og:title" content="Liminar — Lead Generation & Automatización de Datos">
-  <meta property="og:description" content="Tus próximos clientes ya existen. Solo no los estás viendo.">
-  <meta property="og:url" content="https://liminar.cl">
+  <title>Liminar — Generación de Leads & Automatización de Datos | Chile</title>
+  <meta name="description" content="Monitoreamos portales públicos, registros y señales digitales para entregarte contactos calificados — leads para casi cualquier industria, en el momento exacto de intención de compra.">
+  <meta name="keywords" content="generación de leads, lead generation Chile, captación de clientes, automatización de datos, prospección, leads calificados, inteligencia de datos">
+  <meta name="author" content="Liminar">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0F0F14">
+  <meta name="geo.region" content="CL-RM">
+  <meta name="geo.placename" content="Santiago">
+  <link rel="canonical" href="https://www.liminar.cl/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Liminar — Generación de Leads para casi cualquier industria">
+  <meta property="og:description" content="Detectamos señales de compra en tiempo real y entregamos contactos calificados. Tus próximos clientes ya existen — nosotros los encontramos.">
+  <meta property="og:url" content="https://www.liminar.cl/">
   <meta property="og:type" content="website">
-  <link rel="canonical" href="https://liminar.cl">
+  <meta property="og:site_name" content="Liminar">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:image" content="https://www.liminar.cl/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Liminar — Generación de leads y automatización de datos">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Liminar — Generación de Leads para casi cualquier industria">
+  <meta name="twitter:description" content="Detectamos señales de compra en tiempo real y entregamos contactos calificados.">
+  <meta name="twitter:image" content="https://www.liminar.cl/og.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.liminar.cl/#org",
+        "name": "Liminar",
+        "url": "https://www.liminar.cl/",
+        "logo": "https://www.liminar.cl/og.png",
+        "image": "https://www.liminar.cl/og.png",
+        "email": "josediazadaros@gmail.com",
+        "telephone": "+56961208729",
+        "description": "Generación de leads y automatización de datos. Detectamos señales de compra en fuentes públicas y entregamos contactos calificados con intención de compra.",
+        "areaServed": { "@type": "Country", "name": "Chile" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Santiago", "addressCountry": "CL" },
+        "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "email": "josediazadaros@gmail.com", "telephone": "+56961208729", "availableLanguage": ["es"] }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.liminar.cl/#website",
+        "url": "https://www.liminar.cl/",
+        "name": "Liminar",
+        "publisher": { "@id": "https://www.liminar.cl/#org" },
+        "inLanguage": "es-CL"
+      },
+      {
+        "@type": "Service",
+        "name": "Generación de leads y automatización de datos",
+        "serviceType": "Lead generation",
+        "provider": { "@id": "https://www.liminar.cl/#org" },
+        "areaServed": { "@type": "Country", "name": "Chile" },
+        "description": "Monitoreo de portales públicos, registros y señales digitales para entregar contactos calificados con intención de compra, en industrias como inmobiliario, jurídico, automotriz y más."
+      }
+    ]
+  }
+  </script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='2' y='14.5' width='22' height='2' rx='1' fill='%230F0F14'/><circle cx='26' cy='15.5' r='4.5' fill='%231B44E3'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -753,18 +812,20 @@
       display: grid;
       border: 1px solid var(--line);
     }
-    @media (min-width: 768px) { .cases-grid { grid-template-columns: repeat(3,1fr); } }
+    @media (min-width: 768px) { .cases-grid { grid-template-columns: repeat(2,1fr); } }
 
     .case-card {
-      padding: 40px 36px 0;
+      padding: 40px 36px;
       display: flex;
       flex-direction: column;
       border-bottom: 1px solid var(--line);
       transition: background .3s var(--ease);
     }
+    .case-card:last-child { border-bottom: none; }
     @media (min-width: 768px) {
-      .case-card { border-bottom: none; border-right: 1px solid var(--line); }
-      .case-card:last-child { border-right: none; }
+      .case-card { border-bottom: 1px solid var(--line); }
+      .case-card:nth-child(odd) { border-right: 1px solid var(--line); }
+      .case-card:nth-child(n+3) { border-bottom: none; } /* última fila (4 tarjetas) */
     }
     .case-card:hover { background: var(--bg2); }
     .case-tag   { color: var(--ink-m); display: block; margin-bottom: 20px; }
@@ -903,6 +964,16 @@
       font-size: .9rem;
       color: var(--accent);
     }
+    .form-error {
+      display: none;
+      padding: 16px 20px;
+      border: 1px solid #C0392B;
+      border-radius: 4px;
+      background: rgba(192,57,43,.06);
+      font-size: .9rem;
+      color: #C0392B;
+    }
+    .form-error a { color: inherit; text-decoration: underline; }
 
     /* ── FOOTER ─────────────────────────────────────── */
     footer { padding: 28px 0; }
@@ -932,6 +1003,73 @@
       color: var(--accent); letter-spacing: -0.02em; display: block; margin-bottom: 6px;
     }
     .case-metric-lbl { font-size: .8125rem; color: var(--ink-m); line-height: 1.4; }
+    .case-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line);
+    }
+    .case-stat b {
+      font-family: 'JetBrains Mono', monospace; font-size: 1.0625rem; font-weight: 500;
+      color: var(--ink); display: block; line-height: 1.1; letter-spacing: -0.01em;
+    }
+    .case-stat span {
+      font-size: .6875rem; color: var(--ink-m); line-height: 1.4; display: block;
+      margin-top: 5px; letter-spacing: 0.02em;
+    }
+
+    /* ── CASE WIDGET (casos de éxito personalizados) ── */
+    .casos-intro {
+      font-size: 1rem; line-height: 1.65; color: var(--ink-s);
+      max-width: 540px; margin-top: -36px; margin-bottom: 44px;
+    }
+    .cases-widget { max-width: 780px; margin: 0 auto; }
+    .cw-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; justify-content: center; }
+    .cw-tab {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 18px; border-radius: 999px; cursor: pointer;
+      border: 1px solid var(--line-s); background: var(--bg);
+      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500;
+      color: var(--ink-m); transition: color .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease);
+    }
+    .cw-tab .cw-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .cw-tab:hover { color: var(--ink); transform: translateY(-2px); }
+    .cw-tab.active { color: var(--ink); border-color: var(--ink); }
+
+    .cw-card {
+      border: 1px solid var(--line-s); border-radius: 8px; overflow: hidden;
+      background: var(--bg); box-shadow: 0 6px 30px rgba(15,15,20,0.08);
+    }
+    :root[data-theme="dark"] .cw-card { box-shadow: 0 6px 30px rgba(0,0,0,0.34); }
+    .cw-card.fade { animation: d3fade .45s var(--ease); }
+    .cw-band { height: 5px; }
+    .cw-head { padding: 22px 26px 18px; border-bottom: 1px solid var(--line); }
+    .cw-tag {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px; display: block;
+    }
+    .cw-title {
+      font-family: 'Fraunces', serif; font-optical-sizing: auto;
+      font-size: 1.375rem; font-weight: 400; font-style: italic;
+      line-height: 1.28; color: var(--ink);
+    }
+    .cw-metrics { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .cw-metric { padding: 18px 26px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .cw-metric:last-child { border-right: none; }
+    .cw-metric b {
+      font-family: 'Fraunces', serif; font-optical-sizing: auto;
+      font-size: 1.75rem; font-weight: 400; line-height: 1; display: block; letter-spacing: -0.02em;
+    }
+    .cw-metric span { font-size: .7rem; color: var(--ink-m); line-height: 1.4; margin-top: 7px; display: block; }
+    @media (max-width: 560px) {
+      .cw-metrics { grid-template-columns: 1fr; }
+      .cw-metric { border-right: none; }
+    }
+    .cw-demo { padding: 24px 26px; background: var(--bg2); }
+    .cw-demo .d3-phases { max-width: 430px; margin: 0 auto; }
+    .cw-desc {
+      padding: 20px 26px; border-top: 1px solid var(--line);
+      font-size: .9375rem; line-height: 1.6; color: var(--ink-s);
+    }
+    .cw-desc strong { color: var(--ink); font-weight: 500; }
 
     /* ── COBRO ──────────────────────────────────────── */
     #cobro { padding: 112px 0; border-bottom: 1px solid var(--line); }
@@ -1018,7 +1156,7 @@
       <div>
         <div class="h-eyebrow">
           <span class="h-eyebrow-dot" aria-hidden="true"></span>
-          <span class="mono" style="color:var(--ink-m)">Lead generation · Soluciones a medida</span>
+          <span class="mono" style="color:var(--ink-m)">Generación de leads · Para casi cualquier industria</span>
         </div>
         <h1 class="hero-h1 serif">
           Tus próximos clientes<br>
@@ -1211,43 +1349,12 @@
 <section id="casos" aria-labelledby="casos-h">
   <div class="w">
     <div class="stag">
-      <span class="mono stag-txt">03 / Casos</span>
+      <span class="mono stag-txt">04 / Casos</span>
       <span class="stag-rule" aria-hidden="true"></span>
     </div>
     <h2 id="casos-h" class="casos-h2 serif">Lo que ya está <em>funcionando.</em></h2>
-    <div class="cases-grid">
-
-      <article class="case-card">
-        <span class="mono case-tag">Real Estate · Portal Inmobiliario</span>
-        <h3 class="case-title">Vendedores particulares convertidos en clientes de broker.</h3>
-        <p class="case-desc">Detectamos vendedores particulares con señales de urgencia y entregamos el contacto al broker antes que cualquier otra inmobiliaria.</p>
-        <div class="case-result">
-          <span class="case-metric-num">200+</span>
-          <span class="case-metric-lbl">leads diarios captados · cero gasto en pauta</span>
-        </div>
-      </article>
-
-      <article class="case-card">
-        <span class="mono case-tag">Jurídico · Mercado Público</span>
-        <h3 class="case-title">Empresas que perdieron licitaciones. Leads con urgencia declarada.</h3>
-        <p class="case-desc">Identificamos proveedores no adjudicados en ChileCompra y entregamos el contacto enriquecido — el estudio llega sabiendo qué perdieron y con qué argumentos apelar.</p>
-        <div class="case-result">
-          <span class="case-metric-num">70%</span>
-          <span class="case-metric-lbl">tasa de captura de contacto verificado · flujo semanal</span>
-        </div>
-      </article>
-
-      <article class="case-card">
-        <span class="mono case-tag">Mediación · Centros judiciales</span>
-        <h3 class="case-title">Más sesiones conjuntas. Menos inasistencias. Operación sin fricción.</h3>
-        <p class="case-desc">El centro ya tiene su sistema de agendamiento. Nosotros entramos antes: extraemos causas activas y contactamos periódicamente a ambas partes para asegurar que la sesión efectivamente ocurra.</p>
-        <div class="case-result">
-          <span class="case-metric-num">+50%</span>
-          <span class="case-metric-lbl">sesiones conjuntas efectivas · agenda siempre activa</span>
-        </div>
-      </article>
-
-    </div>
+    <p class="casos-intro">Cada cliente, su propio sistema. Cambia entre casos para ver cómo se ve en cada rubro.</p>
+    <div id="cases-widget" class="cases-widget"><!-- montado por JS --></div>
   </div>
 </section>
 
@@ -1288,10 +1395,13 @@
       </div>
 
       <div>
-        <!-- Formspree: reemplaza YOUR_FORM_ID con tu ID de formspree.io -->
+        <!-- Formspree — endpoint conectado a josediazadaros@gmail.com -->
         <form class="contact-form" id="contact-form"
-              action="https://formspree.io/f/YOUR_FORM_ID"
+              action="https://formspree.io/f/xnjrkywa"
               method="POST">
+          <input type="hidden" name="_subject" value="Nuevo lead desde liminar.cl">
+          <!-- honeypot anti-spam: oculto para humanos, los bots lo rellenan -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
           <div class="form-row">
             <div class="form-field">
               <label for="nombre">Nombre</label>
@@ -1321,8 +1431,11 @@
             <p class="form-note">Sin spam. Solo te escribimos para coordinar la llamada.</p>
             <button type="submit" class="btn btn-accent btn-lg">Enviar →</button>
           </div>
-          <div class="form-success" id="form-success">
+          <div class="form-success" id="form-success" role="status" aria-live="polite">
             Recibido. Te contactamos en menos de 24 horas para coordinar.
+          </div>
+          <div class="form-error" id="form-error" role="alert" aria-live="assertive">
+            No pudimos enviar el formulario. Escríbenos directo a <a href="mailto:josediazadaros@gmail.com">josediazadaros@gmail.com</a>.
           </div>
         </form>
       </div>
@@ -1370,21 +1483,83 @@
   });
 
   /* ─────────────────────────────────────────────────────────
-     HERO D3 — 3 fases: Detección → Lead → Cierre
+     HERO WIDGET — la solución concreta de Liminar:
+     señal pública detectada → lead calificado → entregado.
      ───────────────────────────────────────────────────────── */
   (function() {
     var mount = document.getElementById('hero-d3');
     if (!mount) return;
 
-    var TABS = [
-      { id: 'mp', label: 'Mercado Público' },
-      { id: 'pi', label: 'Portales inmobiliarios' }
-    ];
-    var AUTO_DELAY   = 12000;
-    var MANUAL_DELAY = 30000;
-    var currentDelay = AUTO_DELAY;
+    function phaseHead(num, label) {
+      return '<div class="d3-phase-head"><span class="d3-phase-num">' + num + '</span><span class="d3-phase-lbl">/ ' + label + '</span></div>';
+    }
+    function phaseConn() {
+      return '<div class="d3-phase-conn"><svg width="14" height="16" viewBox="0 0 14 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1 L7 13 M3 9 L7 13 L11 9"/></svg></div>';
+    }
 
-    /* ── Helpers ── */
+    /* 01 · Rastreamos fuentes públicas y detectamos señales de compra */
+    var SIGNALS = [
+      { a: 'Una empresa publica un requerimiento', b: 'Licitación' },
+      { a: 'Alguien publica su propiedad en venta', b: 'Portal' },
+      { a: 'Una persona busca comprar un vehículo', b: 'Autos' },
+      { a: 'Un proveedor queda fuera de licitación', b: 'Registro' }
+    ];
+    function phase1() {
+      var html = '<div class="d3-pi-header">'
+        + '<div class="d3-pi-headinfo"><div class="d3-pi-badge" style="background:var(--accent)">◎</div>'
+        + '<div><small>Fuentes públicas · multi-rubro</small><b>Señales de compra · hoy</b></div></div>'
+        + '<span class="d3-flag">● EN VIVO</span>'
+        + '</div>'
+        + '<div class="d3-subbar"><div class="d3-subbar-left"><small>Detectadas hoy</small><b>1.247 con intención de compra</b></div><span class="d3-flag">scan ●●●</span></div>';
+      SIGNALS.forEach(function(row) {
+        html += '<div class="d3-mp-row hl">'
+          + '<span class="d3-mp-prov" style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">' + row.a + '</span>'
+          + '<span class="d3-tag hl" style="flex-shrink:0">' + row.b + '</span>'
+          + '</div>';
+      });
+      return html + '<div style="padding:7px 10px;font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--accent);letter-spacing:0.04em">● Cada señal = alguien que ya tiene el problema, ahora</div>';
+    }
+
+    /* 02 · La calificamos: contacto verificado, sin pauta ni listas frías */
+    function phase2() {
+      return '<div class="d3-lead-phase">'
+        + '<div class="d3-out-meta" style="margin-bottom:8px"><span class="live">● LEAD CALIFICADO</span><span>HACE 3 MIN</span></div>'
+        + '<div class="d3-lead-name-lg">Contacto ●●●●●●</div>'
+        + '<span class="d3-lead-contact">+56 9 ●●●● ●●●● · dato verificado</span>'
+        + '<div class="d3-lead-reason">Mostró intención de compra en una fuente pública. Contacto validado y enriquecido — sin pauta, sin listas frías.</div>'
+        + '<div class="d3-action-row">'
+        +   '<span class="d3-action-btn wa">WhatsApp</span>'
+        +   '<span class="d3-action-btn em">Correo</span>'
+        + '</div></div>';
+    }
+
+    /* 03 · Te lo entregamos listo para cerrar, por tu canal */
+    function phase3() {
+      return '<div class="d3-lead-phase">'
+        + '<div class="d3-out-meta" style="margin-bottom:10px"><span class="live">● ENTREGADO A TU EQUIPO</span><span>LISTO PARA CERRAR</span></div>'
+        + '<div class="d3-channels"><div class="d3-channels-label">Por el canal que prefieras</div>'
+        + '<div class="d3-chip-list"><span class="d3-chip">WhatsApp</span><span class="d3-chip">Email</span><span class="d3-chip">CRM</span><span class="d3-chip">Planilla</span></div></div>'
+        + '<div class="d3-callout"><span>Tú cierras</span><span>Nosotros seguimos encontrando</span></div>'
+        + '</div>';
+    }
+
+    mount.innerHTML = '<div class="d3-phases">'
+      + '<div class="d3-phase">' + phaseHead('01', 'Detectamos la señal') + phase1() + '</div>'
+      + phaseConn()
+      + '<div class="d3-phase">' + phaseHead('02', 'La calificamos') + phase2() + '</div>'
+      + phaseConn()
+      + '<div class="d3-phase">' + phaseHead('03', 'Te la entregamos') + phase3() + '</div>'
+      + '</div>';
+  })();
+
+  /* ─────────────────────────────────────────────────────────
+     CASOS DE ÉXITO — widget que cambia entre casos.
+     Cada caso: color propio + métricas + demo (det→lead→cierre) + desc.
+     ───────────────────────────────────────────────────────── */
+  (function() {
+    var mount = document.getElementById('cases-widget');
+    if (!mount) return;
+
     function phaseHead(num, label) {
       return '<div class="d3-phase-head"><span class="d3-phase-num">' + num + '</span><span class="d3-phase-lbl">/ ' + label + '</span></div>';
     }
@@ -1406,127 +1581,194 @@
         + (checks ? '<span style="font-size:11px;opacity:0.75">✓✓</span>' : '')
         + '</div></div>';
     }
+    function hexA(hex, a) {
+      var h = hex.replace('#', '');
+      return 'rgba(' + parseInt(h.substr(0,2),16) + ',' + parseInt(h.substr(2,2),16) + ',' + parseInt(h.substr(4,2),16) + ',' + a + ')';
+    }
 
-    /* ══ MERCADO PÚBLICO ══ */
-
-    function phase1MP() {
-      var rows = [
-        { org: 'MIN. SALUD',   monto: '$412M', adj: true  },
-        { org: 'JUNAEB',       monto: '$234M', adj: false },
-        { org: 'SERVIU METROP.', monto: '$315M', adj: true  },
-        { org: 'CORFO',        monto: '$268M', adj: false },
-      ];
-      var html = '<div class="d3-mp-header">'
-        + '<div class="d3-mp-headinfo"><div class="d3-mp-badge">MP</div>'
-        + '<div><small>mercadopublico.cl</small><b>Licitaciones &gt;$200M · hoy</b></div></div>'
+    function feedHeader(c) {
+      return '<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 12px;background:' + c.head + ';color:' + c.headText + '">'
+        + '<div style="display:flex;align-items:center;gap:8px;min-width:0">'
+        + '<div style="width:22px;height:22px;border-radius:4px;flex-shrink:0;background:' + c.headText + ';color:' + c.head + ';display:grid;place-items:center;font-size:10px;font-weight:700">' + c.badge + '</div>'
+        + '<div style="min-width:0"><small style="font-size:10px;opacity:.8;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + c.feed.source + '</small><b style="font-size:12.5px;font-weight:500;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + c.feed.title + '</b></div>'
+        + '</div>'
+        + '<span style="font-family:\'JetBrains Mono\',monospace;font-size:9px;letter-spacing:.06em;flex-shrink:0">● EN VIVO</span>'
         + '</div>';
-      rows.forEach(function(r) {
-        html += '<div class="d3-mp-row' + (!r.adj ? ' hl' : '') + '">'
-          + '<span class="d3-mp-prov" style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">' + r.org + '</span>'
-          + '<span style="font-family:\'JetBrains Mono\',monospace;font-size:10px;color:var(--ink-s);flex-shrink:0;margin:0 6px">' + r.monto + '</span>'
-          + '<span class="d3-tag ' + (!r.adj ? 'hl' : 'dim') + '" style="flex-shrink:0">' + (r.adj ? 'Adj.' : 'No adj.') + '</span>'
+    }
+    function feedTable(c) {
+      var html = feedHeader(c);
+      c.feed.rows.forEach(function(r) {
+        html += '<div class="d3-mp-row' + (r.sig ? ' hl' : '') + '"' + (r.sig ? ' style="background:' + hexA(c.accent, 0.09) + '"' : '') + '>'
+          + '<span class="d3-mp-prov" style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">' + r.a + '</span>'
+          + '<span style="font-family:\'JetBrains Mono\',monospace;font-size:10px;color:var(--ink-s);flex-shrink:0;margin:0 6px">' + r.b + '</span>'
+          + '<span class="d3-tag" style="flex-shrink:0;' + (r.sig ? 'background:' + c.accent + ';color:#fff' : 'background:var(--line);color:var(--ink-m)') + '">' + r.tag + '</span>'
           + '</div>';
       });
-      return html + '<div style="padding:7px 10px;font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--accent);letter-spacing:0.04em">● 2 empresas no adjudicadas detectadas</div>';
+      return html + '<div style="padding:7px 10px;font-family:\'JetBrains Mono\',monospace;font-size:9px;color:' + c.accent + ';letter-spacing:0.04em">● ' + c.feed.found + '</div>';
     }
-
-    function phase2MP() {
-      return '<div class="d3-lead-phase">'
-        + '<div class="d3-out-meta" style="margin-bottom:8px"><span class="live">● LEAD GENERADO</span><span>JUNAEB · 4521-12-LE25</span></div>'
-        + '<div class="d3-lead-name-lg">Soluciones Doc S.A.</div>'
-        + '<span class="d3-lead-contact">Rep. Juan Méndez · +56 9 ●●●● ●●●●</span>'
-        + '<div class="d3-lead-reason">Perdió por 4.2% frente al adjudicado. Plazo de apelación: 3 días hábiles.</div>'
-        + '<div class="d3-action-row">'
-        +   '<span class="d3-action-btn wa">WhatsApp</span>'
-        +   '<span class="d3-action-btn em">Correo</span>'
-        + '</div></div>';
-    }
-
-    function phase3MP() {
-      return '<div class="d3-chat-head">'
-        + '<div class="d3-chat-avatar" style="background:#1B44E3">EJ</div>'
-        + '<div class="d3-chat-info"><b>Estudio Jurídico</b><small>● en línea</small></div>'
-        + '</div><div class="d3-chat">'
-        + bubble('out', 'Detectamos que no fueron adjudicados en JUNAEB 4521-12-LE25. Tenemos argumentos para apelar el fallo.', '10:14', true, null)
-        + bubble('in',  '¿Cuáles son las chances? Perdimos por 4.2%.', '10:16', false, 'Soluciones Doc S.A.')
-        + bubble('out', 'Muy buenas. La causal es impugnable. Mandamos propuesta hoy mismo.', '10:17', true, null)
-        + '</div>';
-    }
-
-    /* ══ PORTALES INMOBILIARIOS ══ */
-
-    function phase1PI() {
-      var props = [
-        { title: 'Depto 3D · Las Condes',  price: 'UF 8.900',  tipo: 'INMOB',   hl: false, color: '#0B3D7A' },
-        { title: 'Depto 2D · Providencia', price: 'UF 5.400',  tipo: 'PARTIC.', hl: true,  color: '#FF7733' },
-        { title: 'Casa 4D · La Reina',     price: 'UF 14.200', tipo: 'BROKER',  hl: false, color: '#7B61FF' },
-        { title: 'Depto 1D · Ñuñoa',      price: 'UF 3.200',  tipo: 'PARTIC.', hl: true,  color: '#1B44E3' },
-      ];
-      var html = '<div class="d3-pi-header">'
-        + '<div class="d3-pi-headinfo"><div class="d3-pi-badge">P</div>'
-        + '<div><small>5 portales · RM</small><b>Publicaciones nuevas</b></div></div>'
-        + '</div>';
-      props.forEach(function(p) {
-        html += '<div class="d3-pi-row' + (p.hl ? ' hl' : '') + '">'
+    function feedListing(c) {
+      var html = feedHeader(c);
+      c.feed.rows.forEach(function(p) {
+        html += '<div class="d3-pi-row' + (p.hl ? ' hl' : '') + '"' + (p.hl ? ' style="background:' + hexA(c.accent, 0.09) + '"' : '') + '>'
           + thumb(p.color)
           + '<div class="d3-pi-info"><b>' + p.title + '</b><small>' + p.price + '</small></div>'
-          + '<span class="d3-tag ' + (p.hl ? 'hl' : 'dim') + '">' + p.tipo + '</span>'
+          + '<span class="d3-tag" style="' + (p.hl ? 'background:' + c.accent + ';color:#fff' : 'background:var(--line);color:var(--ink-m)') + '">' + p.tipo + '</span>'
           + '</div>';
       });
-      return html + '<div style="padding:7px 10px;font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--accent);letter-spacing:0.04em">● 2 vendedores particulares detectados</div>';
+      return html + '<div style="padding:7px 10px;font-family:\'JetBrains Mono\',monospace;font-size:9px;color:' + c.accent + ';letter-spacing:0.04em">● ' + c.feed.found + '</div>';
     }
-
-    function phase2PI() {
+    function leadPhase(c) {
+      var p = c.lead;
       return '<div class="d3-lead-phase">'
-        + '<div class="d3-out-meta" style="margin-bottom:8px"><span class="live">● LEAD CALIFICADO</span><span>HACE 6 MIN</span></div>'
-        + '<div class="d3-lead-name-lg">Carlos R.</div>'
-        + '<span class="d3-lead-contact">+56 9 ●●●● ●●●● · Providencia · UF 5.400</span>'
-        + '<div class="d3-lead-reason">Vendedor particular. Bajó UF 200 en 6 días. Publicó 2 veces. Señal de urgencia alta.</div>'
+        + '<div class="d3-out-meta" style="margin-bottom:8px"><span class="live" style="color:' + c.accent + '">' + p.metaLeft + '</span><span>' + p.metaRight + '</span></div>'
+        + '<div class="d3-lead-name-lg">' + p.name + '</div>'
+        + '<span class="d3-lead-contact">' + p.contact + '</span>'
+        + '<div class="d3-lead-reason" style="border-left-color:' + c.accent + ';background:' + hexA(c.accent, 0.07) + '">' + p.reason + '</div>'
         + '<div class="d3-action-row">'
-        +   '<span class="d3-action-btn wa">Ofrecer corretaje</span>'
-        +   '<span class="d3-action-btn em">WhatsApp</span>'
+        +   '<span class="d3-action-btn" style="background:' + c.accent + ';color:#fff">' + p.btn1 + '</span>'
+        +   '<span class="d3-action-btn em">' + p.btn2 + '</span>'
         + '</div></div>';
     }
-
-    function phase3PI() {
-      return '<div class="d3-chat-head">'
-        + '<div class="d3-chat-avatar" style="background:#FF7733">BR</div>'
-        + '<div class="d3-chat-info"><b>Broker Especialista</b><small>● en línea</small></div>'
-        + '</div><div class="d3-chat">'
-        + bubble('out', 'Hola Carlos, vi tu depto en Providencia. Soy broker con compradores calificados en la zona.', '11:02', true, null)
-        + bubble('in',  'Llevo 2 meses publicando sin resultados. ¿Qué incluye el servicio?', '11:04', false, 'Carlos R.')
-        + bubble('out', 'Tasación, difusión en 5 portales y cierre en ~30 días. ¿Agendamos mañana?', '11:05', true, null)
-        + '</div>';
+    function chatPhase(c) {
+      var ch = c.chat;
+      var html = '<div class="d3-chat-head" style="border-bottom-color:' + c.accent + '">'
+        + '<div class="d3-chat-avatar" style="background:' + c.accent + '">' + ch.avatar + '</div>'
+        + '<div class="d3-chat-info"><b>' + ch.who + '</b><small>● en línea</small></div>'
+        + '</div><div class="d3-chat">';
+      ch.bubbles.forEach(function(b) { html += bubble(b[0], b[1], b[2], b[3], b[4]); });
+      return html + '</div>';
     }
 
-    /* ── Render ── */
-    var current = 0;
-    var rotateTimer = null;
+    var CASES = [
+      {
+        label: 'Mercado Público', tag: 'Jurídico · Mercado Público',
+        head: '#0B3D7A', headText: '#FFFFFF', accent: '#1B5FBF', badge: 'MP', dot: '#1B5FBF',
+        title: 'Empresas que perdieron licitaciones, listas para apelar.',
+        metrics: [['+1.000', 'oportunidades legales / día'], ['+150.000', 'licitaciones analizadas / día'], ['+5.000', 'leads de proveedores rechazados']],
+        feed: { type: 'table', source: 'mercadopublico.cl', title: 'Licitaciones >$200M · hoy',
+          rows: [
+            { a: 'MIN. SALUD', b: '$412M', sig: false, tag: 'Adj.' },
+            { a: 'JUNAEB',     b: '$234M', sig: true,  tag: 'No adj.' },
+            { a: 'SERVIU RM',  b: '$315M', sig: false, tag: 'Adj.' },
+            { a: 'CORFO',      b: '$268M', sig: true,  tag: 'No adj.' }
+          ], found: '2 empresas no adjudicadas detectadas' },
+        lead: { head: 'Lead generado', metaLeft: '● LEAD GENERADO', metaRight: 'JUNAEB · 4521-12-LE25',
+          name: 'Soluciones Doc S.A.', contact: 'Rep. Juan Méndez · +56 9 ●●●● ●●●●',
+          reason: 'Perdió por 4.2% frente al adjudicado. Plazo de apelación: 3 días hábiles.',
+          btn1: 'WhatsApp', btn2: 'Correo' },
+        chat: { head: 'Cierre', avatar: 'EJ', who: 'Estudio Jurídico',
+          bubbles: [
+            ['out', 'Detectamos que no fueron adjudicados en JUNAEB 4521-12-LE25. Tenemos argumentos para apelar el fallo.', '10:14', true, null],
+            ['in', '¿Cuáles son las chances? Perdimos por 4.2%.', '10:16', false, 'Soluciones Doc S.A.'],
+            ['out', 'Muy buenas. La causal es impugnable. Mandamos propuesta hoy mismo.', '10:17', true, null]
+          ] },
+        desc: 'Identificamos proveedores <strong>no adjudicados</strong> en ChileCompra y entregamos el contacto enriquecido — el estudio llega sabiendo qué perdieron y con qué argumentos apelar.'
+      },
+      {
+        label: 'Inmobiliario', tag: 'Real Estate · Portales Inmobiliarios',
+        head: '#E0A100', headText: '#1A1300', accent: '#C98A00', badge: 'P', dot: '#E8A400',
+        title: 'Vendedores particulares convertidos en clientes de broker.',
+        metrics: [['~200', 'leads diarios para corretaje'], ['5', 'portales analizados a la vez'], ['+ outreach', 'gestión de contacto incluida']],
+        feed: { type: 'listing', source: '5 portales · RM', title: 'Publicaciones nuevas',
+          rows: [
+            { title: 'Depto 3D · Las Condes',  price: 'UF 8.900',  tipo: 'INMOB',   hl: false, color: '#0B3D7A' },
+            { title: 'Depto 2D · Providencia', price: 'UF 5.400',  tipo: 'PARTIC.', hl: true,  color: '#E0A100' },
+            { title: 'Casa 4D · La Reina',     price: 'UF 14.200', tipo: 'BROKER',  hl: false, color: '#7B61FF' },
+            { title: 'Depto 1D · Ñuñoa',       price: 'UF 3.200',  tipo: 'PARTIC.', hl: true,  color: '#C98A00' }
+          ], found: '2 vendedores particulares detectados' },
+        lead: { head: 'Lead calificado', metaLeft: '● LEAD CALIFICADO', metaRight: 'HACE 6 MIN',
+          name: 'Carlos R.', contact: '+56 9 ●●●● ●●●● · Providencia · UF 5.400',
+          reason: 'Vendedor particular. Bajó UF 200 en 6 días. Publicó 2 veces. Señal de urgencia alta.',
+          btn1: 'Ofrecer corretaje', btn2: 'WhatsApp' },
+        chat: { head: 'Cierre', avatar: 'BR', who: 'Broker Especialista',
+          bubbles: [
+            ['out', 'Hola Carlos, vi tu depto en Providencia. Soy broker con compradores calificados en la zona.', '11:02', true, null],
+            ['in', 'Llevo 2 meses publicando sin resultados. ¿Qué incluye el servicio?', '11:04', false, 'Carlos R.'],
+            ['out', 'Tasación, difusión en 5 portales y cierre en ~30 días. ¿Agendamos mañana?', '11:05', true, null]
+          ] },
+        desc: 'Detectamos <strong>vendedores particulares</strong> con señales de urgencia y entregamos el contacto al broker. La gestión de outreach también la operamos nosotros.'
+      },
+      {
+        label: 'Automóviles', tag: 'Automotriz · Portales de venta',
+        head: '#C0182E', headText: '#FFFFFF', accent: '#D7263D', badge: 'A', dot: '#D7263D',
+        title: 'Oportunidades que el ojo no ve. Nuestro sistema sí.',
+        metrics: [['+200', 'oportunidades nuevas / día'], ['+62.000', 'vehículos analizados / día'], ['+4.200', 'leads activos de consignación']],
+        feed: { type: 'table', source: 'portales de autos', title: 'Publicaciones nuevas · hoy',
+          rows: [
+            { a: 'SUV 2021 · 48.000 km',       b: '$14,9M', sig: true,  tag: '-18%' },
+            { a: 'Sedán 2019 · 72.000 km',     b: '$8,2M',  sig: false, tag: 'En precio' },
+            { a: 'Camioneta 2022 · 30.000 km', b: '$23,5M', sig: true,  tag: '-12%' },
+            { a: 'Hatchback 2020 · 55.000 km', b: '$7,1M',  sig: false, tag: 'En precio' }
+          ], found: '2 oportunidades bajo valor de mercado' },
+        lead: { head: 'Oportunidad', metaLeft: '● OPORTUNIDAD', metaRight: 'HACE 2 MIN',
+          name: 'SUV 2021 · 48.000 km', contact: 'Particular · publicado hace 2 h · $14,9M',
+          reason: '18% bajo el valor de mercado. Apto para flipping. Vendedor con urgencia: bajó el precio 2 veces esta semana.',
+          btn1: 'Asignar a equipo', btn2: 'Ver ficha' },
+        chat: { head: 'Gestión', avatar: 'TC', who: 'Tu equipo · Compras',
+          bubbles: [
+            ['out', 'Nueva oportunidad asignada: SUV 2021, 18% bajo mercado. Datos del vendedor adjuntos.', '09:05', true, null],
+            ['in', 'Perfecto, lo contacto ahora. ¿Margen estimado?', '09:06', false, 'Gestor'],
+            ['out', '~$2,7M en reventa. Vendedor con urgencia, buen momento para cerrar.', '09:07', true, null]
+          ] },
+        desc: 'Capturamos <strong>oportunidades de compra</strong> en los portales de autos (flipping + consignación) y entregamos la data lista para que tu equipo la tome y gestione.'
+      },
+      {
+        label: 'Mediación', tag: 'Mediación · Centros judiciales',
+        head: '#E7DBC4', headText: '#4A3D26', accent: '#9A7B45', badge: 'M', dot: '#C9B58A',
+        title: 'Más sesiones conjuntas. Menos inasistencias.',
+        metrics: [['+50%', 'sesiones conjuntas efectivas'], ['2 partes', 'contactadas automáticamente'], ['0 fricción', 'el centro mantiene su sistema']],
+        feed: { type: 'table', source: 'causas activas', title: 'Mediaciones por confirmar',
+          rows: [
+            { a: 'Causa C-1242-2026', b: 'Familia', sig: true,  tag: 'Pendiente' },
+            { a: 'Causa C-0981-2026', b: 'Civil',   sig: false, tag: 'Agendada' },
+            { a: 'Causa C-1577-2026', b: 'Familia', sig: true,  tag: 'Pendiente' },
+            { a: 'Causa C-0734-2026', b: 'Civil',   sig: false, tag: 'Agendada' }
+          ], found: '2 causas sin sesión confirmada' },
+        lead: { head: 'Recordatorio', metaLeft: '● RECORDATORIO', metaRight: 'C-1242-2026',
+          name: 'Sesión conjunta', contact: 'Ambas partes · cita propuesta: jue 10:00',
+          reason: 'Ambas partes contactadas. Recordatorio automático 24 h antes para asegurar la asistencia a la sesión.',
+          btn1: 'WhatsApp', btn2: 'Correo' },
+        chat: { head: 'Confirmación', avatar: 'CM', who: 'Centro de Mediación',
+          bubbles: [
+            ['out', 'Le recordamos su sesión de mediación: jueves 10:00. ¿Confirma asistencia?', '12:10', true, null],
+            ['in', 'Sí, confirmo. Gracias por el recordatorio.', '12:14', false, 'Parte solicitante'],
+            ['out', 'Perfecto. La otra parte también confirmó. Nos vemos el jueves.', '12:15', true, null]
+          ] },
+        desc: 'Extraemos <strong>causas activas</strong> y contactamos periódicamente a ambas partes para asegurar que la sesión efectivamente ocurra. El centro mantiene su sistema de agendamiento.'
+      }
+    ];
+
+    var current = 0, rotateTimer = null;
+    var AUTO_DELAY = 11000, MANUAL_DELAY = 40000, currentDelay = AUTO_DELAY;
 
     function render(idx, animate) {
-      var tabs = '<div class="d3-tabs" role="tablist">'
-        + TABS.map(function(t, i) {
-            return '<button class="d3-tab' + (i === idx ? ' active' : '') + '" data-i="' + i + '" role="tab">' + t.label + '</button>';
-          }).join('')
-        + '<span class="d3-progress' + (animate ? ' run' : '') + '" style="left:' + (idx * 50) + '%;animation-duration:' + (currentDelay / 1000) + 's"></span>'
+      var c = CASES[idx];
+      var tabs = '<div class="cw-tabs">' + CASES.map(function(t, i) {
+        return '<button class="cw-tab' + (i === idx ? ' active' : '') + '" data-i="' + i + '"><span class="cw-dot" style="background:' + t.dot + '"></span>' + t.label + '</button>';
+      }).join('') + '</div>';
+
+      var metrics = '<div class="cw-metrics">' + c.metrics.map(function(m) {
+        return '<div class="cw-metric"><b style="color:' + c.accent + '">' + m[0] + '</b><span>' + m[1] + '</span></div>';
+      }).join('') + '</div>';
+
+      var demo = '<div class="cw-demo"><div class="d3-phases' + (animate ? ' fade' : '') + '" style="--accent:' + c.accent + '">'
+        + '<div class="d3-phase">' + phaseHead('01', 'Detección') + (c.feed.type === 'listing' ? feedListing(c) : feedTable(c)) + '</div>'
+        + phaseConn()
+        + '<div class="d3-phase">' + phaseHead('02', c.lead.head) + leadPhase(c) + '</div>'
+        + phaseConn()
+        + '<div class="d3-phase">' + phaseHead('03', c.chat.head) + chatPhase(c) + '</div>'
+        + '</div></div>';
+
+      var card = '<div class="cw-card' + (animate ? ' fade' : '') + '">'
+        + '<div class="cw-band" style="background:' + c.accent + '"></div>'
+        + '<div class="cw-head"><span class="cw-tag" style="color:' + c.accent + '">' + c.tag + '</span><div class="cw-title">' + c.title + '</div></div>'
+        + metrics + demo
+        + '<div class="cw-desc">' + c.desc + '</div>'
         + '</div>';
 
-      var p1 = idx === 0 ? phase1MP() : phase1PI();
-      var p2 = idx === 0 ? phase2MP() : phase2PI();
-      var p3 = idx === 0 ? phase3MP() : phase3PI();
-      var lbl1 = idx === 0 ? 'Detección' : 'Portales · 5 fuentes';
+      mount.innerHTML = tabs + card;
 
-      var body = '<div class="d3-phases' + (animate ? ' fade' : '') + '">'
-        + '<div class="d3-phase">' + phaseHead('01', lbl1) + p1 + '</div>'
-        + phaseConn()
-        + '<div class="d3-phase">' + phaseHead('02', 'Lead generado') + p2 + '</div>'
-        + phaseConn()
-        + '<div class="d3-phase">' + phaseHead('03', 'Cierre') + p3 + '</div>'
-        + '</div>';
-
-      mount.innerHTML = tabs + body;
-
-      Array.prototype.forEach.call(mount.querySelectorAll('.d3-tab'), function(btn) {
+      Array.prototype.forEach.call(mount.querySelectorAll('.cw-tab'), function(btn) {
         btn.addEventListener('click', function() {
           var i = parseInt(btn.getAttribute('data-i'), 10);
           if (i === current) return;
@@ -1538,44 +1780,48 @@
         });
       });
     }
-
     function startRotate() {
-      var delay = currentDelay;
+      var d = currentDelay;
       stopRotate();
       rotateTimer = setTimeout(function() {
         currentDelay = AUTO_DELAY;
-        current = (current + 1) % TABS.length;
+        current = (current + 1) % CASES.length;
         render(current, true);
         startRotate();
-      }, delay);
+      }, d);
     }
-    function stopRotate() {
-      if (rotateTimer) { clearTimeout(rotateTimer); rotateTimer = null; }
-    }
+    function stopRotate() { if (rotateTimer) { clearTimeout(rotateTimer); rotateTimer = null; } }
 
-    render(0, true);
+    render(0, false);
     startRotate();
   })();
 
   /* Formspree AJAX submit */
   var form = document.getElementById('contact-form');
   var success = document.getElementById('form-success');
+  var errorBox = document.getElementById('form-error');
   if (form) {
+    var submitBtn = form.querySelector('button[type=submit]');
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      var data = new FormData(form);
+      if (errorBox) errorBox.style.display = 'none';
+      var prevLabel = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = 'Enviando…'; }
       fetch(form.action, {
         method: 'POST',
-        body: data,
+        body: new FormData(form),
         headers: { 'Accept': 'application/json' }
       }).then(function(res) {
         if (res.ok) {
           form.reset();
           success.style.display = 'block';
-          form.querySelector('button[type=submit]').style.display = 'none';
+          if (submitBtn) submitBtn.style.display = 'none';
+        } else {
+          throw new Error('bad response');
         }
       }).catch(function() {
-        alert('Error al enviar. Escríbenos directamente a josediazadaros@gmail.com');
+        if (errorBox) errorBox.style.display = 'block';
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = prevLabel; }
       });
     });
   }
