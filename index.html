@@ -351,7 +351,13 @@
       color: var(--ink); margin-bottom: 6px; letter-spacing: -0.01em;
     }
     .hstep-desc { font-size: .9375rem; line-height: 1.6; color: var(--ink-s); }
-    @media (max-width: 1023px) { .hero-steps { margin: 0 auto; } }
+    .hero-steps-note {
+      max-width: 460px; margin: 26px 0 0 auto;
+      padding-top: 18px; border-top: 1px solid var(--line-s);
+      font-size: .84375rem; line-height: 1.6; color: var(--ink-m);
+    }
+    .hero-steps-note strong { color: var(--ink-s); font-weight: 600; }
+    @media (max-width: 1023px) { .hero-steps, .hero-steps-note { margin-left: auto; margin-right: auto; } }
 
     /* Tabs — su propia card */
     .d3-tabs { display: flex; border-bottom: 1px solid var(--line); position: relative;
@@ -1234,6 +1240,7 @@
             </div>
           </li>
         </ol>
+        <p class="hero-steps-note">No compramos bases de datos: detectamos quién está <strong>comprando ahora</strong>, en señales públicas.</p>
       </div>
       <!-- (gráfico anterior conservado oculto como fallback) -->
       <div class="hero-chart" aria-hidden="true" style="display:none">
@@ -1611,7 +1618,7 @@
             ['in', '¿Cuáles son las chances? Perdimos por 4.2%.', '10:16', false, 'Soluciones Doc S.A.'],
             ['out', 'Muy buenas. La causal es impugnable. Mandamos propuesta hoy mismo.', '10:17', true, null]
           ] },
-        desc: 'Identificamos proveedores <strong>no adjudicados</strong> en ChileCompra y entregamos el lead enriquecido — el estudio llega sabiendo qué perdieron y con qué argumentos apelar.'
+        desc: 'Identificamos proveedores <strong>no adjudicados</strong> en ChileCompra y entregamos la oportunidad enriquecida — el estudio llega sabiendo qué perdieron y con qué argumentos apelar.'
       },
       {
         label: 'Inmobiliario', tag: 'Real Estate · Portales Inmobiliarios',
