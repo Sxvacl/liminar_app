@@ -1,0 +1,28 @@
+# === Datos locales (convención global: nunca al repo) ===
+*.sqlite
+*.sqlite3
+*.db
+*.csv
+data/
+db/
+
+# Secretos / entorno
+.env
+.env.local
+.env.*.local
+
+# Estado local de Claude Code / IDE
+.claude/
+.vscode/
+.idea/
+
+# Build / tooling (Vercel, node si se añade)
+.vercel/
+node_modules/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
